@@ -1,14 +1,20 @@
 import type { NextConfig } from "next";
 
+const isProd = process.env.NODE_ENV === "production";
+
 const securityHeaders = [
   {
     key: "X-DNS-Prefetch-Control",
     value: "on"
   },
-  {
-    key: "Strict-Transport-Security",
-    value: "max-age=63072000; includeSubDomains; preload"
-  },
+  ...(isProd
+    ? [
+        {
+          key: "Strict-Transport-Security",
+          value: "max-age=63072000; includeSubDomains; preload"
+        }
+      ]
+    : []),
   {
     key: "X-Frame-Options",
     value: "SAMEORIGIN"
@@ -34,8 +40,8 @@ const securityHeaders = [
       "font-src 'self' https://fonts.gstatic.com data:;",
       "img-src 'self' data: blob: https://images.unsplash.com https://*.google.com https://*.googleapis.com https://*.gstatic.com;",
       "frame-src 'self' https://www.google.com https://maps.google.com;",
-      "connect-src 'self' https://*.googleapis.com https://*.google.com;",
-      "upgrade-insecure-requests;"
+      `connect-src 'self' ws: wss: http://localhost:* ws://localhost:* https://*.googleapis.com https://*.google.com;`,
+      ...(isProd ? ["upgrade-insecure-requests;"] : [])
     ].join(" ")
   }
 ];
@@ -43,6 +49,7 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   reactStrictMode: true,
+  transpilePackages: ["lucide-react"],
   images: {
     remotePatterns: [
       {
