@@ -1,0 +1,216 @@
+import type { Metadata } from "next";
+import fs from "fs";
+import path from "path";
+
+export interface PageSeoConfig {
+  title: string;
+  description: string;
+  keywords: string;
+  canonical?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  ogImage?: string;
+  robots?: string;
+}
+
+export interface GlobalSeoConfig {
+  siteName: string;
+  titleTemplate: string;
+  defaultDescription: string;
+  defaultKeywords: string;
+  defaultOgImage: string;
+  siteUrl: string;
+  googleSiteVerification?: string;
+  googleAnalyticsId?: string;
+  contact: {
+    phone: string;
+    whatsapp: string;
+    email: string;
+    address: string;
+    hours: string;
+  };
+}
+
+export interface FullSeoConfig {
+  global: GlobalSeoConfig;
+  pages: {
+    home: PageSeoConfig;
+    about: PageSeoConfig;
+    services: PageSeoConfig;
+    contact: PageSeoConfig;
+    [key: string]: PageSeoConfig;
+  };
+}
+
+const DEFAULT_SEO_CONFIG: FullSeoConfig = {
+  global: {
+    siteName: "Al Raheeq Tourism Dubai",
+    titleTemplate: "%s | Al Raheeq Tourism LLC - Dubai, UAE",
+    defaultDescription: "Al Raheeq Tourism is a premier travel and tourism agency located in Al Rigga, Deira, Dubai. We provide flight bookings, fast UAE visit visa processing, luxury hotels, customized Dubai holiday packages, and international travel insurance.",
+    defaultKeywords: "Dubai tourism agency, Al Raheeq Tourism, UAE visit visa 30 days 60 days, Desert Safari Dubai, cheap flight booking Dubai, luxury hotel booking Deira, Al Rigga travel agency, Dubai holiday packages",
+    defaultOgImage: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&h=630&q=80",
+    siteUrl: "https://alraheeqtourism.com",
+    contact: {
+      phone: "+971 4 396 9478",
+      whatsapp: "+971 4 396 9478",
+      email: "info@alraheeqtourism.com",
+      address: "Al Masraf Building, 22nd Floor, Al Rigga, Deira, Dubai, UAE",
+      hours: "Mon - Sat: 9:00 AM - 10:00 PM (Sunday Closed)"
+    }
+  },
+  pages: {
+    home: {
+      title: "Al Raheeq Tourism | Best Travel & Tourism Agency in Deira Dubai",
+      description: "Experience Dubai with Al Raheeq Tourism. Expert flight ticketing, fast UAE tourist visa assistance, luxury desert safari, dhow cruise, and custom vacation packages in Dubai.",
+      keywords: "Dubai travel agency, Al Raheeq Tourism, UAE tourist visa, Dubai desert safari, luxury tour packages Dubai, Al Rigga Deira travel agency",
+      canonical: "https://alraheeqtourism.com",
+      ogTitle: "Al Raheeq Tourism | Premier Travel & Tours in Dubai, UAE",
+      ogDescription: "Book flights, UAE visas, Dubai tour packages, and luxury hotels with Al Raheeq Tourism in Al Rigga, Deira, Dubai.",
+      ogImage: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&h=630&q=80",
+      robots: "index, follow"
+    },
+    about: {
+      title: "About Us | Al Raheeq Tourism LLC Dubai",
+      description: "Learn about Al Raheeq Tourism, a licensed UAE travel agency based in Al Masraf Building, Al Rigga, Deira, Dubai. Dedicated to unforgettable travel experiences.",
+      keywords: "about Al Raheeq Tourism, Dubai travel agency history, licensed UAE travel agency, Al Masraf building Deira tourism",
+      canonical: "https://alraheeqtourism.com/about",
+      ogTitle: "About Al Raheeq Tourism | Trusted Dubai Travel Agency",
+      ogDescription: "Discover our journey, our team, and our commitment to providing world-class travel services from the heart of Dubai.",
+      ogImage: "https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=1200&h=630&q=80",
+      robots: "index, follow"
+    },
+    services: {
+      title: "Our Services | Flights, Visas, Hotels & Holiday Packages in Dubai",
+      description: "Comprehensive travel solutions by Al Raheeq Tourism: Worldwide Flight Bookings, UAE Visit Visas (30 & 60 Days), Global Hotel Reservations, Tailor-made Holiday Packages, and Travel Insurance.",
+      keywords: "Dubai visa services, UAE visit visa 60 days, cheap flights Dubai, holiday packages UAE, hotel reservations Deira",
+      canonical: "https://alraheeqtourism.com/services",
+      ogTitle: "Travel Services in Dubai | Al Raheeq Tourism",
+      ogDescription: "Explore our full range of travel solutions designed for tourists, corporate travelers, and families visiting Dubai.",
+      ogImage: "https://images.unsplash.com/photo-1580674684081-7617fbf3d745?auto=format&fit=crop&w=1200&h=630&q=80",
+      robots: "index, follow"
+    },
+    contact: {
+      title: "Contact Us | Al Raheeq Tourism Deira Dubai Office",
+      description: "Get in touch with Al Raheeq Tourism located on the 22nd Floor of Al Masraf Building, Al Rigga, Deira, Dubai. Call +971 4 396 9478 or get an instant quote on WhatsApp.",
+      keywords: "contact Al Raheeq Tourism, Al Masraf building 22nd floor, Al Rigga travel agency phone, Dubai tourism contact number",
+      canonical: "https://alraheeqtourism.com/contact",
+      ogTitle: "Contact Al Raheeq Tourism | Visit Our Office in Al Rigga, Deira",
+      ogDescription: "Need a visa, flight, or holiday package? Visit our Dubai office or connect directly via WhatsApp and phone.",
+      ogImage: "https://images.unsplash.com/photo-1546412414-e1885259563a?auto=format&fit=crop&w=1200&h=630&q=80",
+      robots: "index, follow"
+    }
+  }
+};
+
+export function getRawSeoConfig(): FullSeoConfig {
+  try {
+    const filePath = path.join(process.cwd(), "data", "seo-config.json");
+    if (fs.existsSync(filePath)) {
+      const content = fs.readFileSync(filePath, "utf-8");
+      return JSON.parse(content) as FullSeoConfig;
+    }
+  } catch (error) {
+    console.error("Failed to read seo-config.json, falling back to defaults", error);
+  }
+  return DEFAULT_SEO_CONFIG;
+}
+
+export function saveRawSeoConfig(config: FullSeoConfig): boolean {
+  try {
+    const dirPath = path.join(process.cwd(), "data");
+    if (!fs.existsSync(dirPath)) {
+      fs.mkdirSync(dirPath, { recursive: true });
+    }
+    const filePath = path.join(dirPath, "seo-config.json");
+    fs.writeFileSync(filePath, JSON.stringify(config, null, 2), "utf-8");
+    return true;
+  } catch (error) {
+    console.error("Failed to save seo-config.json", error);
+    return false;
+  }
+}
+
+export function getSeoMetadata(pageKey: "home" | "about" | "services" | "contact"): Metadata {
+  const config = getRawSeoConfig();
+  const page = config.pages[pageKey] || config.pages.home;
+  const siteUrl = config.global.siteUrl || "https://alraheeqtourism.com";
+
+  return {
+    title: page.title,
+    description: page.description,
+    keywords: page.keywords?.split(",").map((k) => k.trim()),
+    alternates: {
+      canonical: page.canonical || `${siteUrl}/${pageKey === "home" ? "" : pageKey}`
+    },
+    openGraph: {
+      title: page.ogTitle || page.title,
+      description: page.ogDescription || page.description,
+      url: page.canonical || `${siteUrl}/${pageKey === "home" ? "" : pageKey}`,
+      siteName: config.global.siteName,
+      images: [
+        {
+          url: page.ogImage || config.global.defaultOgImage,
+          width: 1200,
+          height: 630,
+          alt: page.ogTitle || page.title
+        }
+      ],
+      locale: "en_AE",
+      type: "website"
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: page.ogTitle || page.title,
+      description: page.ogDescription || page.description,
+      images: [page.ogImage || config.global.defaultOgImage]
+    },
+    robots: {
+      index: !page.robots?.includes("noindex"),
+      follow: !page.robots?.includes("nofollow")
+    }
+  };
+}
+
+export function getLocalBusinessSchema() {
+  const config = getRawSeoConfig();
+  const { contact } = config.global;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "TravelAgency",
+    "name": "Al Raheeq Tourism LLC",
+    "alternateName": "الرحيق للسياحة",
+    "image": config.global.defaultOgImage,
+    "@id": `${config.global.siteUrl}/#agency`,
+    "url": config.global.siteUrl,
+    "telephone": contact.phone,
+    "email": contact.email,
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Al Masraf Building, 22nd Floor, Al Rigga Road",
+      "addressLocality": "Deira",
+      "addressRegion": "Dubai",
+      "postalCode": "00000",
+      "addressCountry": "AE"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 25.2631,
+      "longitude": 55.3216
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "09:00",
+        "closes": "22:00"
+      }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "1240"
+    }
+  };
+}
