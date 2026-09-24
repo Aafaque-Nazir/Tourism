@@ -75,6 +75,7 @@ export default function Navbar() {
     { href: "/about", label: "About" },
     { href: "/services", label: "Services" },
     { href: "/packages", label: "Packages" },
+    { href: "/stories", label: "Stories" },
   ];
 
   return (
@@ -157,7 +158,7 @@ export default function Navbar() {
               href="/contact"
               className="flex items-center gap-2 px-5 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider text-white bg-sky-600 hover:bg-sky-700 transition-colors shadow-sm hover:shadow"
             >
-              <span>Inquire</span>
+              <span>Contact Us</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
@@ -211,7 +212,7 @@ export default function Navbar() {
                 onClick={() => setMobileMenuOpen(false)}
                 className="w-full flex items-center justify-center gap-2 py-4 rounded-xl text-sm font-bold uppercase tracking-wider text-white bg-sky-600 hover:bg-sky-700 shadow-md transition-all active:scale-95"
               >
-                <span>Inquire Now</span>
+                <span>Contact Us</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
 

@@ -80,22 +80,20 @@ export default function HeroSection({ onOpenQuoteModal }: HeroSectionProps) {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 text-sky-300 text-xs font-semibold tracking-wider uppercase border border-white/10 backdrop-blur-sm">
             <ShieldCheck className="w-3.5 h-3.5" />
-            <span>Licensed UAE Travel Agency</span>
+            <span>Licensed UAE Travel Agency • Deira, Dubai</span>
           </div>
 
           <h1 className="font-editorial text-4xl sm:text-5xl lg:text-[3.5rem] font-bold tracking-tight text-white leading-[1.1]">
-            Crafting Exceptional
+            Easy & Affordable
             <br />
-            <span className="text-sky-400">Journeys Across Dubai</span>
-            <br />& Beyond
+            <span className="text-sky-400">Travel in Dubai</span>
+            <br />& Worldwide
           </h1>
 
           <div className="divider-sky" />
 
-          <p className="text-base sm:text-lg text-white/60 leading-relaxed max-w-xl font-light">
-            Headquartered on the 22nd Floor of Al Masraf Building, Deira.
-            Fast-track UAE visas, luxury tours, competitive flights, and bespoke
-            holiday experiences.
+          <p className="text-base sm:text-lg text-white/70 leading-relaxed max-w-xl font-light">
+            Visit our office in Deira or book online. We help you with quick UAE visit visas, cheap flight tickets, desert safaris, and complete holiday packages with no hidden costs.
           </p>
 
           <div className="flex flex-wrap items-center gap-4 pt-2">

@@ -105,7 +105,7 @@ export default function PrivacyPolicyPage() {
                   href="/contact"
                   className="w-full mt-2 flex items-center justify-center gap-2 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold transition-colors"
                 >
-                  <span>Inquire with Legal Officer</span>
+                  <span>Contact Our Privacy Team</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>

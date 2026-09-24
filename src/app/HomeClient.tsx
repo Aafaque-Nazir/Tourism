@@ -70,21 +70,21 @@ export default function HomeClient() {
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
             <div>
               <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-sky-600 block mb-1">
-                Deira Headquarters • Direct Services
+                Our Services in Dubai
               </span>
               <h2 className="font-editorial text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
-                Travel Services in Dubai
+                Everything You Need for Your Trip
               </h2>
               <div className="divider-sky mt-2.5" />
               <p className="text-xs sm:text-sm text-slate-500 mt-2 max-w-xl leading-relaxed">
-                Fast-track UAE tourist visas, discounted global flight ticketing, luxury hotel reservations, and compliant insurance.
+                Fast UAE visit visas, cheap flight tickets, Dubai desert safaris, hotel bookings, and travel insurance.
               </p>
             </div>
             <Link
               href="/services"
               className="inline-flex items-center gap-1.5 text-xs font-bold text-sky-600 hover:text-sky-700 transition-colors shrink-0 self-start sm:self-auto"
             >
-              <span>View All 5 Services</span>
+              <span>View All Services</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
@@ -115,15 +115,15 @@ export default function HomeClient() {
           <div className="mt-8 pt-6 border-t border-slate-200/80 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-500">
             <span className="flex items-center gap-1.5 font-medium">
               <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
-              <span>Direct Immigration Portal • 24–48h Visa Turnaround</span>
+              <span>Fast Visas in 24–48 Hours</span>
             </span>
             <span className="flex items-center gap-1.5 font-medium">
               <Building2 className="w-4 h-4 text-sky-600 shrink-0" />
-              <span>Walk-in Consultations at Al Masraf Building, Deira</span>
+              <span>Visit Our Office in Deira (Al Masraf Building)</span>
             </span>
             <span className="flex items-center gap-1.5 font-medium">
               <FileCheck className="w-4 h-4 text-amber-600 shrink-0" />
-              <span>Official Invoices • Zero Hidden Surcharges</span>
+              <span>Clear Pricing • No Hidden Fees</span>
             </span>
           </div>
         </div>
@@ -190,30 +190,30 @@ export default function HomeClient() {
             {/* Content */}
             <div className="lg:col-span-7 space-y-6">
               <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-sky-400">
-                About Us
+                Why Choose Us
               </span>
               <h2 className="font-editorial text-3xl sm:text-4xl font-bold text-white tracking-tight">
-                Why Choose
-                <br />Al Raheeq Tourism LLC
+                Simple, Honest & Reliable
+                <br />Travel Service in Dubai
               </h2>
               <div className="divider-sky" />
-              <p className="text-sm text-white/50 leading-relaxed max-w-lg">
-                Operating from Al Masraf Building in Deira, we offer honest and fast travel services for tourists and residents in the UAE.
+              <p className="text-sm text-white/70 leading-relaxed max-w-lg font-light">
+                Located in Al Masraf Building, Deira. We make travel planning easy, honest, and stress-free for tourists and UAE residents.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
                 {[
-                  { icon: FileCheck, title: "Direct Visa Portal", desc: "UAE immigration integration for rapid 30 & 60-day tourist visa approvals." },
-                  { icon: CreditCard, title: "Zero Hidden Charges", desc: "All-inclusive quotes with official UAE VAT and full invoice breakdowns." },
-                  { icon: Headphones, title: "Personal Counselor", desc: "Dedicated support for itinerary changes, rebooking, and emergency assistance." },
-                  { icon: Building2, title: "Physical Office", desc: "Walk-in consultations Mon–Sat, 9 AM – 10 PM at our Deira headquarters." },
+                  { icon: FileCheck, title: "Quick UAE Visas", desc: "Fast 30-day and 60-day tourist visas with simple document requirements and fast approvals." },
+                  { icon: CreditCard, title: "No Hidden Fees", desc: "What you see is what you pay. Clear bills with 5% UAE VAT and no surprise charges." },
+                  { icon: Headphones, title: "Friendly Support", desc: "Message or call us on WhatsApp anytime for quick answers, ticket changes, and trip advice." },
+                  { icon: Building2, title: "Walk-in Office", desc: "Visit us Mon–Sat, 9 AM to 10 PM on Al Rigga Road, Deira — 2 minutes from the metro." },
                 ].map((item) => {
                   const Icon = item.icon;
                   return (
                     <div key={item.title} className="p-5 rounded-xl bg-white/5 border border-white/10">
                       <Icon className="w-5 h-5 text-sky-400 mb-3" />
                       <h4 className="text-sm font-bold text-white">{item.title}</h4>
-                      <p className="text-xs text-white/40 mt-1.5 leading-relaxed">{item.desc}</p>
+                      <p className="text-xs text-white/50 mt-1.5 leading-relaxed">{item.desc}</p>
                     </div>
                   );
                 })}

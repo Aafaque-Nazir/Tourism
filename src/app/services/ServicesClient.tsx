@@ -49,14 +49,14 @@ export default function ServicesClient() {
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/85 to-transparent" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
           <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-sky-400">
-            Travel Management
+            What We Offer
           </span>
           <h1 className="font-editorial text-4xl sm:text-5xl font-bold tracking-tight text-white leading-tight">
-            Our Services & Solutions
+            Our Travel Services in Dubai
           </h1>
           <div className="divider-sky" />
-          <p className="text-sm text-white/50 max-w-xl leading-relaxed">
-            Full-spectrum travel solutions handled directly by our Dubai office. Visas, ticketing, luxury accommodations, excursions, and compliant insurance.
+          <p className="text-sm text-slate-300 max-w-xl leading-relaxed font-light">
+            Visit our office in Deira or book online. We help you with quick UAE visit visas, cheap flight tickets, Dubai desert safaris, hotel reservations, and travel insurance.
           </p>
         </div>
       </section>
@@ -119,7 +119,7 @@ export default function ServicesClient() {
                     onClick={() => openQuote(srv.title)}
                     className="btn-primary flex items-center gap-2 !py-2.5 !px-5"
                   >
-                    <span>Inquire Now</span>
+                    <span>Get a Quote</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                   <a
@@ -135,14 +135,14 @@ export default function ServicesClient() {
               <div className="lg:col-span-5 bg-slate-50 rounded-xl p-6 border border-slate-200 space-y-3.5">
                 <div className="flex items-center gap-2 text-slate-900 font-bold text-sm">
                   <FileText className="w-4 h-4 text-sky-600" />
-                  <span>Booking Guidelines</span>
+                  <span>Good to Know</span>
                 </div>
                 <ul className="space-y-2 text-xs text-slate-600">
                   {[
-                    "Processed at our 22nd floor Deira headquarters",
-                    "Complete invoice with official UAE VAT details",
-                    "Dedicated consultant assigned to your booking",
-                    "Direct confirmation and electronic voucher delivery",
+                    "Handled directly by our team in Deira, Dubai",
+                    "Clear invoice with official 5% UAE VAT",
+                    "A personal travel agent to assist you anytime",
+                    "Fast confirmation sent directly to your WhatsApp or email",
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
                       <span className="w-1 h-1 rounded-full bg-sky-500 mt-1.5 shrink-0" />

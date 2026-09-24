@@ -51,7 +51,7 @@ export default function ContactClient() {
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/85 to-transparent" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
           <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-sky-400">
-            Deira Headquarters
+            Our Dubai Office
           </span>
           <h1 className="font-editorial text-4xl sm:text-5xl font-bold tracking-tight text-white leading-tight">
             Contact Al Raheeq
@@ -59,7 +59,7 @@ export default function ContactClient() {
           </h1>
           <div className="divider-sky" />
           <p className="text-sm text-white/50 max-w-xl leading-relaxed">
-            Visit our 22nd-floor office in Al Masraf Building, call our dedicated team, or connect instantly via WhatsApp for rapid travel assistance.
+            Visit our office on the 22nd floor of Al Masraf Building in Deira, call us directly, or chat with us on WhatsApp for fast help.
           </p>
         </div>
       </section>
@@ -73,11 +73,11 @@ export default function ContactClient() {
             <div className="lg:col-span-5 space-y-10">
               <div>
                 <h2 className="font-editorial text-3xl font-bold text-slate-900 tracking-tight">
-                  Dubai Operations Center
+                  Get in Touch
                 </h2>
                 <div className="divider-sky mt-4" />
                 <p className="text-sm text-slate-500 mt-4 leading-relaxed">
-                  Our licensed travel consultants are available 6 days a week to assist with visa processing, flight ticketing, and holiday planning.
+                  Our friendly team is here 6 days a week to help you with tourist visas, cheap flights, and holiday tours.
                 </p>
               </div>
 
@@ -87,7 +87,7 @@ export default function ContactClient() {
                     <MapPin className="w-5 h-5 text-sky-600" />
                   </div>
                   <div>
-                    <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-1">Corporate Address</h4>
+                    <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-1">Office Address</h4>
                     <p className="text-sm text-slate-600 leading-relaxed">
                       {COMPANY_INFO.address.line1}<br />
                       {COMPANY_INFO.address.line2}<br />
@@ -140,9 +140,9 @@ export default function ContactClient() {
             {/* Contact Form */}
             <div className="lg:col-span-7">
               <div className="bg-slate-50 rounded-2xl p-8 sm:p-10 border border-slate-200">
-                <h3 className="font-editorial text-2xl font-bold text-slate-900 mb-2">Send an Inquiry</h3>
+                <h3 className="font-editorial text-2xl font-bold text-slate-900 mb-2">Send Us a Message</h3>
                 <p className="text-sm text-slate-500 mb-8">
-                  Fill out the form below and our concierge team will respond promptly.
+                  Fill out the form below and our team will get back to you quickly.
                 </p>
 
                 <form onSubmit={handleSubmit} className="space-y-5">
@@ -173,20 +173,20 @@ export default function ContactClient() {
                       Subject
                     </label>
                     <select id="subject" name="subject" value={formData.subject} onChange={handleChange} className={inputCls}>
-                      <option value="General Inquiry">General Inquiry</option>
+                      <option value="General Inquiry">General Question</option>
                       <option value="UAE Tourist Visa">UAE Tourist Visa</option>
                       <option value="Flight Booking">Flight Booking</option>
-                      <option value="Tour or Safari Booking">Tour or Safari Booking</option>
-                      <option value="Hotel Reservation">Hotel Reservation</option>
-                      <option value="Corporate Travel">Corporate Travel Account</option>
+                      <option value="Tour or Safari Booking">Tour or Desert Safari</option>
+                      <option value="Hotel Reservation">Hotel Booking</option>
+                      <option value="Corporate Travel">Company Travel</option>
                     </select>
                   </div>
 
                   <div>
                     <label htmlFor="message" className="block text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-2">
-                      Message / Request Details *
+                      Your Message *
                     </label>
-                    <textarea id="message" name="message" required rows={4} value={formData.message} onChange={handleChange} className={`${inputCls} resize-none`} placeholder="Tell us about your travel dates, passenger count, or specific requirements..." />
+                    <textarea id="message" name="message" required rows={4} value={formData.message} onChange={handleChange} className={`${inputCls} resize-none`} placeholder="Tell us about your travel dates, passenger count, or questions..." />
                   </div>
 
                   <div className="pt-4 flex flex-col sm:flex-row gap-4">
@@ -196,10 +196,10 @@ export default function ContactClient() {
                       className="flex-1 flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl font-bold text-xs uppercase tracking-wider text-white bg-slate-900 hover:bg-slate-800 transition-colors disabled:opacity-70"
                     >
                       {isSubmitting ? (
-                        <span>Processing...</span>
+                        <span>Sending...</span>
                       ) : (
                         <>
-                          <span>Submit Request</span>
+                          <span>Send Message</span>
                           <Send className="w-4 h-4" />
                         </>
                       )}
