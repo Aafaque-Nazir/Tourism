@@ -16,6 +16,7 @@ import {
 import HeroSection from "@/components/HeroSection";
 import ServiceCard from "@/components/ServiceCard";
 import PackageCard from "@/components/PackageCard";
+import PackageDetailModal from "@/components/PackageDetailModal";
 import InstantQuoteModal from "@/components/InstantQuoteModal";
 import ReviewsCarousel from "@/components/ReviewsCarousel";
 import {
@@ -23,11 +24,14 @@ import {
   FEATURED_PACKAGES,
   REVIEWS_DATA,
   COMPANY_INFO,
+  type TourPackage,
 } from "@/lib/data";
 
 export default function HomeClient() {
   const [isQuoteOpen, setIsQuoteOpen] = useState(false);
   const [selectedService, setSelectedService] = useState("General Dubai Inquiry");
+  const [detailPkg, setDetailPkg] = useState<TourPackage | null>(null);
+  const [pkgTab, setPkgTab] = useState<"details" | "requirements" | "quote">("details");
 
   const openQuote = (serviceName?: string) => {
     setSelectedService(serviceName || "General Dubai Inquiry");
@@ -60,45 +64,72 @@ export default function HomeClient() {
       </section>
 
       {/* Services */}
-      <section className="py-24 bg-slate-50">
+      <section className="py-14 sm:py-16 bg-slate-50 border-t border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl mb-14">
-            <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-sky-600">
-              Our Services
-            </span>
-            <h2 className="font-editorial text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight mt-2">
-              Travel Services in Dubai
-            </h2>
-            <div className="divider-sky mt-4" />
-            <p className="text-sm text-slate-500 mt-4 leading-relaxed">
-              We provide UAE tourist visas, cheap flight tickets, hotel bookings, and complete holiday packages.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {SERVICES_DATA.map((service, idx) => (
-              <ServiceCard
-                key={service.id}
-                service={service}
-                index={idx}
-                onSelect={(title) => openQuote(title)}
-              />
-            ))}
-          </div>
-
-          <div className="mt-12 text-center">
+          {/* Section Header */}
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+            <div>
+              <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-sky-600 block mb-1">
+                Deira Headquarters • Direct Services
+              </span>
+              <h2 className="font-editorial text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+                Travel Services in Dubai
+              </h2>
+              <div className="divider-sky mt-2.5" />
+              <p className="text-xs sm:text-sm text-slate-500 mt-2 max-w-xl leading-relaxed">
+                Fast-track UAE tourist visas, discounted global flight ticketing, luxury hotel reservations, and compliant insurance.
+              </p>
+            </div>
             <Link
               href="/services"
-              className="btn-outline inline-flex items-center gap-2"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-sky-600 hover:text-sky-700 transition-colors shrink-0 self-start sm:self-auto"
             >
-              <span>View All Services</span>
+              <span>View All 5 Services</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
+          </div>
+
+          {/* Compact Responsive Services Grid (5-col on desktop, 3+2 on laptop, 2 on tablet) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 xl:grid-cols-5 gap-4 sm:gap-4.5">
+            {SERVICES_DATA.map((service, idx) => {
+              const colSpanClass =
+                idx < 3
+                  ? "lg:col-span-2 xl:col-span-1"
+                  : idx === 4
+                  ? "sm:col-span-2 lg:col-span-3 xl:col-span-1"
+                  : "sm:col-span-1 lg:col-span-3 xl:col-span-1";
+
+              return (
+                <div key={service.id} className={colSpanClass}>
+                  <ServiceCard
+                    service={service}
+                    index={idx}
+                    onSelect={(title) => openQuote(title)}
+                  />
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Trust Highlights Strip */}
+          <div className="mt-8 pt-6 border-t border-slate-200/80 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-500">
+            <span className="flex items-center gap-1.5 font-medium">
+              <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
+              <span>Direct Immigration Portal • 24–48h Visa Turnaround</span>
+            </span>
+            <span className="flex items-center gap-1.5 font-medium">
+              <Building2 className="w-4 h-4 text-sky-600 shrink-0" />
+              <span>Walk-in Consultations at Al Masraf Building, Deira</span>
+            </span>
+            <span className="flex items-center gap-1.5 font-medium">
+              <FileCheck className="w-4 h-4 text-amber-600 shrink-0" />
+              <span>Official Invoices • Zero Hidden Surcharges</span>
+            </span>
           </div>
         </div>
       </section>
 
-      {/* Featured Dubai Experiences */}
+      {/* Featured Tour Packages */}
       <section id="packages" className="py-24 bg-white border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
@@ -107,20 +138,20 @@ export default function HomeClient() {
                 Top Packages
               </span>
               <h2 className="font-editorial text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight mt-2">
-                Best Dubai Tour Packages
+                Dubai & International Tour Packages
               </h2>
               <div className="divider-sky mt-4" />
               <p className="text-sm text-slate-500 mt-4 max-w-xl leading-relaxed">
-                Book our most popular tours with guaranteed departures and professional guides.
+                Curated holiday packages to top destinations — from Dubai desert safaris to Georgia, Turkey, Bali & Switzerland.
               </p>
             </div>
-            <button
-              onClick={() => openQuote("Custom Dubai Package")}
+            <Link
+              href="/packages"
               className="btn-primary flex items-center gap-2 shrink-0"
             >
-              <span>Custom Itinerary</span>
+              <span>View All Packages</span>
               <ArrowRight className="w-3.5 h-3.5" />
-            </button>
+            </Link>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -128,9 +159,26 @@ export default function HomeClient() {
               <PackageCard
                 key={pkg.id}
                 packageData={pkg}
-                onBook={(title) => openQuote(title)}
+                onBook={(p) => {
+                  setDetailPkg(p);
+                  setPkgTab("quote");
+                }}
+                onViewItinerary={(p) => {
+                  setDetailPkg(p);
+                  setPkgTab("details");
+                }}
               />
             ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <Link
+              href="/packages"
+              className="btn-outline inline-flex items-center gap-2"
+            >
+              <span>Explore All 12 Packages</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
           </div>
         </div>
       </section>
@@ -257,6 +305,17 @@ export default function HomeClient() {
           </div>
         </div>
       </section>
+
+      {/* Package Detail Modal */}
+      {detailPkg && (
+        <PackageDetailModal
+          isOpen={!!detailPkg}
+          onClose={() => setDetailPkg(null)}
+          pkg={detailPkg}
+          initialTab={pkgTab}
+          key={`${detailPkg.id}-${pkgTab}`}
+        />
+      )}
 
       {/* Quote Modal */}
       <InstantQuoteModal

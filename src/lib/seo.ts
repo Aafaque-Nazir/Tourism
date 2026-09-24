@@ -181,6 +181,7 @@ export function getLocalBusinessSchema() {
     "name": "Al Raheeq Tourism LLC",
     "alternateName": "الرحيق للسياحة",
     "image": config.global.defaultOgImage,
+    "logo": `${config.global.siteUrl}/logo-icon.png`,
     "@id": `${config.global.siteUrl}/#agency`,
     "url": config.global.siteUrl,
     "telephone": contact.phone,

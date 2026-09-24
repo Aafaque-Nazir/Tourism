@@ -26,10 +26,34 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9
     },
     {
+      url: `${siteUrl}/packages`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.9
+    },
+    {
       url: `${siteUrl}/contact`,
       lastModified,
       changeFrequency: "monthly",
       priority: 0.8
+    },
+    {
+      url: `${siteUrl}/privacy-policy`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.3
+    },
+    {
+      url: `${siteUrl}/terms-and-conditions`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.3
+    },
+    {
+      url: `${siteUrl}/cancellation-policy`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.3
     }
   ];
 }

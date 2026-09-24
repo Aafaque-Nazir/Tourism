@@ -49,7 +49,6 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   reactStrictMode: true,
-  transpilePackages: ["lucide-react"],
   images: {
     remotePatterns: [
       {
@@ -61,7 +60,7 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
-        source: "/(.*)",
+        source: "/((?!api|_next/static|_next/image|favicon.ico).*)",
         headers: securityHeaders
       }
     ];

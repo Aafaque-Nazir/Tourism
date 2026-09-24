@@ -68,7 +68,7 @@ export default function ServicesClient() {
             <div
               key={srv.id}
               id={srv.id}
-              className="bg-white rounded-xl p-6 sm:p-10 border border-slate-200 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start"
+              className="bg-white rounded-xl p-6 sm:p-10 border border-slate-200 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start scroll-mt-24"
             >
               {/* Main Content */}
               <div className="lg:col-span-7 space-y-4">

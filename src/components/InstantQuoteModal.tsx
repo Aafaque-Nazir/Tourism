@@ -30,11 +30,20 @@ export default function InstantQuoteModal({
 
   useEffect(() => {
     if (isOpen) {
+      const lenis = (window as unknown as { lenis?: { stop: () => void; start: () => void } }).lenis;
+      lenis?.stop();
+
+      const origHtmlOverflow = document.documentElement.style.overflow;
+      const origBodyOverflow = document.body.style.overflow;
+      document.documentElement.style.overflow = "hidden";
       document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
+
+      return () => {
+        lenis?.start();
+        document.documentElement.style.overflow = origHtmlOverflow;
+        document.body.style.overflow = origBodyOverflow;
+      };
     }
-    return () => { document.body.style.overflow = ""; };
   }, [isOpen]);
 
   if (!isOpen) return null;
@@ -56,11 +65,13 @@ export default function InstantQuoteModal({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/50 backdrop-blur-sm"
+      data-lenis-prevent
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/75 backdrop-blur-sm overflow-hidden"
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-lg bg-white rounded-xl shadow-2xl border border-slate-200 overflow-hidden animate-fade-in-up"
+        data-lenis-prevent
+        className="relative w-full max-w-lg max-h-[92vh] bg-white rounded-xl shadow-2xl border border-slate-200 overflow-y-auto overscroll-contain animate-fade-in-up my-auto"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}

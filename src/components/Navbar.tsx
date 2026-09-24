@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Phone, MapPin, Clock, Menu, X, ArrowRight } from "lucide-react";
 import { COMPANY_INFO } from "@/lib/data";
 
@@ -50,12 +51,22 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Prevent scrolling when mobile menu is open
+  // Prevent scrolling and pause Lenis when mobile menu is open
   useEffect(() => {
     if (mobileMenuOpen) {
+      const lenis = (window as unknown as { lenis?: { stop: () => void; start: () => void } }).lenis;
+      lenis?.stop();
+
+      const origHtmlOverflow = document.documentElement.style.overflow;
+      const origBodyOverflow = document.body.style.overflow;
+      document.documentElement.style.overflow = "hidden";
       document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
+
+      return () => {
+        lenis?.start();
+        document.documentElement.style.overflow = origHtmlOverflow;
+        document.body.style.overflow = origBodyOverflow;
+      };
     }
   }, [mobileMenuOpen]);
 
@@ -63,7 +74,7 @@ export default function Navbar() {
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
     { href: "/services", label: "Services" },
-    { href: "/#packages", label: "Packages" },
+    { href: "/packages", label: "Packages" },
   ];
 
   return (
@@ -106,15 +117,22 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[72px] flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3.5 relative z-50">
-            <div className="w-10 h-10 rounded-lg bg-sky-600 text-white flex items-center justify-center font-editorial text-base font-bold tracking-wider">
-              AR
+          <Link href="/" className="flex items-center gap-3 relative z-50 group">
+            <div className="relative w-11 h-11 rounded-xl bg-white border border-slate-200/90 shadow-2xs p-1 flex items-center justify-center overflow-hidden group-hover:border-sky-300 transition-colors">
+              <Image
+                src="/logo-icon.png"
+                alt="Al Raheeq Tourism LLC Dubai"
+                width={40}
+                height={40}
+                className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                priority
+              />
             </div>
             <div>
-              <span className="font-editorial text-lg font-bold text-slate-900 tracking-tight block leading-tight">
+              <span className="font-editorial text-lg sm:text-xl font-bold text-slate-900 tracking-tight block leading-tight group-hover:text-sky-700 transition-colors">
                 Al Raheeq
               </span>
-              <span className="text-[10px] font-semibold uppercase tracking-[0.15em] text-slate-500">
+              <span className="text-[9.5px] font-bold uppercase tracking-[0.16em] text-sky-600 block">
                 Tourism LLC • Dubai
               </span>
             </div>
