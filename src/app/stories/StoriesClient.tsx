@@ -38,15 +38,29 @@ const UPCOMING_TOPICS = [
 ];
 
 export default function StoriesClient() {
-  const sharePhotosWhatsApp = `https://wa.me/${COMPANY_INFO.cleanPhone}?text=${encodeURIComponent(
-    "Hello Al Raheeq Tourism! I'd like to share my travel photos and trip experience to be featured on your Traveler Stories wall."
+  const shareStoriesMessage = [
+    `*TRAVELER STORIES SUBMISSION* 📸`,
+    `*Al Raheeq Tourism LLC • Dubai*`,
+    `━━━━━━━━━━━━━━━━━━━━`,
+    `Hello Al Raheeq Tourism! I would like to submit my vacation photos and feedback to be featured on your Traveler Stories wall:`,
+    ``,
+    `👤 *Traveler Name:* `,
+    `📍 *Trip / Destination:* `,
+    `⭐ *Trip Rating:* ⭐⭐⭐⭐⭐`,
+    `💬 *My Experience / Review:* `,
+    ``,
+    `━━━━━━━━━━━━━━━━━━━━`,
+    `Attached are my photos. Looking forward to seeing my feature!`
+  ].join("\n");
+
+  const sharePhotosWhatsApp = `https://wa.me/${COMPANY_INFO.cleanPhone.replace("+", "")}?text=${encodeURIComponent(
+    shareStoriesMessage
   )}`;
 
   return (
     <div className="bg-slate-900 text-white min-h-[calc(100vh-72px)] flex flex-col justify-between selection:bg-sky-500 selection:text-white">
-      {/* Background Decorative Ambience */}
+      {/* Background Ambience */}
       <div className="relative overflow-hidden pt-24 pb-20 lg:pt-32 lg:pb-28">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 bg-gradient-to-b from-sky-500/10 via-sky-600/5 to-transparent blur-3xl pointer-events-none" />
 
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
           {/* Heading */}
@@ -54,7 +68,7 @@ export default function StoriesClient() {
             <h1 className="font-editorial text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1]">
               Real Travel Stories
               <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-sky-200 to-white">
+              <span className="text-sky-400">
                 Are on the Way
               </span>
             </h1>
@@ -140,7 +154,7 @@ export default function StoriesClient() {
 
           {/* Invitation Box */}
           <div className="pt-8">
-            <div className="rounded-2xl bg-gradient-to-r from-slate-800/90 via-slate-800 to-slate-800/90 border border-slate-700/80 p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 text-left">
+            <div className="rounded-2xl bg-slate-800 border border-slate-700/80 p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 text-left">
               <div className="space-y-1.5 max-w-xl">
                 <h4 className="text-base sm:text-lg font-bold text-white flex items-center gap-2">
                   <Camera className="w-4 h-4 text-sky-400 shrink-0" />

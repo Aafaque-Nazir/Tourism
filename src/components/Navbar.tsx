@@ -7,10 +7,12 @@ import { Phone, MapPin, Clock, Menu, X, ArrowRight } from "lucide-react";
 import { COMPANY_INFO } from "@/lib/data";
 
 function DubaiClock() {
+  const [mounted, setMounted] = useState(false);
   const [time, setTime] = useState("");
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     function update() {
       const now = new Date(
         new Date().toLocaleString("en-US", { timeZone: "Asia/Dubai" })
@@ -30,14 +32,17 @@ function DubaiClock() {
     return () => clearInterval(id);
   }, []);
 
-  if (!time) return null;
+  if (!mounted || !time) return null;
 
   return (
-    <span className="flex items-center gap-1.5 text-[11px] text-slate-400">
-      <span className="font-medium">
-        Dubai {time} GST — {isOpen ? "Office Open" : "Closed"}
+    <>
+      <span className="text-slate-700" aria-hidden="true">|</span>
+      <span className="flex items-center gap-1.5 text-[11px] text-slate-400">
+        <span className="font-medium">
+          Dubai {time} GST — {isOpen ? "Office Open" : "Closed"}
+        </span>
       </span>
-    </span>
+    </>
   );
 }
 
@@ -88,7 +93,6 @@ export default function Navbar() {
               <MapPin className="w-3 h-3 text-sky-400" />
               <span>22nd Floor, Al Masraf Building, Al Rigga, Deira, Dubai</span>
             </span>
-            <span className="text-slate-700">|</span>
             <DubaiClock />
           </div>
           <div className="flex items-center gap-4">

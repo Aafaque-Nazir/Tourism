@@ -892,33 +892,63 @@ export const REVIEWS_DATA: ReviewItem[] = [
 export function buildWhatsAppQuoteUrl(data: {
   serviceOrPackage?: string;
   name?: string;
+  phone?: string;
   email?: string;
   date?: string;
   travelers?: string;
   visaAssistance?: boolean;
   notes?: string;
 }) {
-  const sanitize = (val?: string, max = 200) => {
+  const sanitize = (val?: string, max = 250) => {
     if (!val || typeof val !== "string") return "";
-    return val.replace(/[\r\n\t]/g, " ").slice(0, max).trim();
+    return val.replace(/[\r\n\t]+/g, " ").slice(0, max).trim();
   };
 
   const phone = COMPANY_INFO.cleanPhone.replace("+", "");
-  const lines = [
-    `*Hello Al Raheeq Tourism!* 🇦🇪`,
-    `I would like to get a confirmed quote from your website:`,
-    data.serviceOrPackage ? `• *Package / Service:* ${sanitize(data.serviceOrPackage, 120)}` : null,
-    data.name ? `• *Traveler Name:* ${sanitize(data.name, 80)}` : null,
-    data.email ? `• *Email:* ${sanitize(data.email, 100)}` : null,
-    data.travelers ? `• *Travelers:* ${sanitize(data.travelers, 50)}` : null,
-    data.date ? `• *Travel Date:* ${sanitize(data.date, 30)}` : null,
-    data.visaAssistance !== undefined ? `• *Visa Assistance:* ${data.visaAssistance ? "Yes, assistance needed" : "Not needed (Have Visa/Residence)"}` : null,
-    data.notes ? `• *Special Notes:* ${sanitize(data.notes, 250)}` : null,
-    ``,
-    `Please share the detailed itinerary PDF and official quote. Thank you!`
-  ].filter(Boolean);
 
-  const text = encodeURIComponent(lines.join("\n"));
+  const details: string[] = [];
+  if (data.serviceOrPackage) {
+    details.push(`📍 *Inquiry / Package:* ${sanitize(data.serviceOrPackage, 120)}`);
+  }
+  if (data.name) {
+    details.push(`👤 *Traveler Name:* ${sanitize(data.name, 80)}`);
+  }
+  if (data.phone) {
+    details.push(`📱 *Contact / WhatsApp:* ${sanitize(data.phone, 40)}`);
+  }
+  if (data.email) {
+    details.push(`✉️ *Email Address:* ${sanitize(data.email, 100)}`);
+  }
+  if (data.travelers) {
+    details.push(`👥 *Travelers:* ${sanitize(data.travelers, 50)}`);
+  }
+  if (data.date) {
+    details.push(`📅 *Preferred Travel Date:* ${sanitize(data.date, 40)}`);
+  }
+  if (data.visaAssistance !== undefined) {
+    details.push(
+      `🛂 *Visa Assistance:* ${
+        data.visaAssistance ? "Yes, assistance required" : "Not needed (Have Visa / UAE Resident)"
+      }`
+    );
+  }
+  if (data.notes) {
+    details.push(`📝 *Message / Special Notes:* ${sanitize(data.notes, 300)}`);
+  }
+
+  const messageLines = [
+    `*AL RAHEEQ TOURISM LLC • DUBAI*`,
+    `━━━━━━━━━━━━━━━━━━━━`,
+    `Hello Team Al Raheeq Tourism! 👋`,
+    `I would like to inquire and receive an official quotation for:`,
+    ``,
+    details.length > 0 ? details.join("\n") : `📍 *Inquiry:* General Travel Services`,
+    ``,
+    `━━━━━━━━━━━━━━━━━━━━`,
+    `Kindly share availability, detailed itinerary, and best pricing. Thank you!`
+  ];
+
+  const text = encodeURIComponent(messageLines.join("\n"));
   return `https://wa.me/${phone}?text=${text}`;
 }
 
@@ -932,34 +962,44 @@ export function buildEmailQuoteUrl(data: {
   visaAssistance?: boolean;
   notes?: string;
 }) {
-  const sanitize = (val?: string, max = 200) => {
+  const sanitize = (val?: string, max = 250) => {
     if (!val || typeof val !== "string") return "";
-    return val.replace(/[\r\n\t]/g, " ").slice(0, max).trim();
+    return val.replace(/[\r\n\t]+/g, " ").slice(0, max).trim();
   };
 
   const subject = encodeURIComponent(
-    `Tour Package Quote Request: ${sanitize(data.serviceOrPackage || "General Inquiry", 60)}${data.name ? ` - ${sanitize(data.name, 40)}` : ""}`
+    `Official Quote Request — ${sanitize(data.serviceOrPackage || "General Travel Inquiry", 60)}${
+      data.name ? ` (${sanitize(data.name, 40)})` : ""
+    }`
   );
 
+  const details: string[] = [];
+  if (data.serviceOrPackage) details.push(`• Package / Service: ${sanitize(data.serviceOrPackage, 120)}`);
+  if (data.name) details.push(`• Traveler Name: ${sanitize(data.name, 80)}`);
+  if (data.phone) details.push(`• Phone / WhatsApp: ${sanitize(data.phone, 40)}`);
+  if (data.email) details.push(`• Email Address: ${sanitize(data.email, 100)}`);
+  if (data.date) details.push(`• Preferred Travel Date: ${sanitize(data.date, 40)}`);
+  if (data.travelers) details.push(`• Number of Travelers: ${sanitize(data.travelers, 40)}`);
+  if (data.visaAssistance !== undefined) {
+    details.push(
+      `• Visa Assistance: ${data.visaAssistance ? "Yes, assistance required" : "No, already have visa/residence"}`
+    );
+  }
+  if (data.notes) details.push(`• Special Requests / Notes: ${sanitize(data.notes, 400)}`);
+
   const bodyLines = [
-    `Dear Al Raheeq Tourism Concierge,`,
+    `Dear Al Raheeq Tourism Concierge Team,`,
     ``,
-    `I would like to request an official quotation and detailed itinerary for the following travel package:`,
+    `I am requesting an official quotation and detailed travel itinerary for the following:`,
     ``,
-    `• Package: ${sanitize(data.serviceOrPackage || "Holiday Package", 100)}`,
-    data.name ? `• Traveler Name: ${sanitize(data.name, 80)}` : null,
-    data.phone ? `• Phone / WhatsApp: ${sanitize(data.phone, 40)}` : null,
-    data.email ? `• Email: ${sanitize(data.email, 80)}` : null,
-    data.date ? `• Preferred Travel Date: ${sanitize(data.date, 40)}` : null,
-    data.travelers ? `• Number of Travelers: ${sanitize(data.travelers, 40)}` : null,
-    data.visaAssistance !== undefined ? `• Visa Assistance Needed: ${data.visaAssistance ? "Yes, please assist" : "No, have visa"}` : null,
-    data.notes ? `• Special Requests / Notes: ${sanitize(data.notes, 300)}` : null,
+    details.length > 0 ? details.join("\n") : `• Service: General Travel Inquiry`,
     ``,
-    `I have reviewed the mandatory document and travel checklist. Please send the quotation and payment/booking procedure.`,
+    `Please share the detailed breakdown including 5% UAE VAT, inclusions, and payment options.`,
     ``,
     `Best regards,`,
-    sanitize(data.name || "Valued Traveler", 50)
-  ].filter(Boolean);
+    sanitize(data.name || "Valued Traveler", 60),
+    data.phone ? sanitize(data.phone, 40) : ""
+  ].filter((line) => line !== undefined);
 
   const body = encodeURIComponent(bodyLines.join("\n"));
   return `mailto:${COMPANY_INFO.email}?subject=${subject}&body=${body}`;

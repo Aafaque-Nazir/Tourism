@@ -53,6 +53,7 @@ export default function InstantQuoteModal({
     const url = buildWhatsAppQuoteUrl({
       serviceOrPackage: service,
       name: name.trim() || undefined,
+      phone: phone.trim() || undefined,
       date: date || undefined,
       travelers: travelers,
       notes: notes.trim() || undefined,

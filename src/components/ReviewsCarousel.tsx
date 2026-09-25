@@ -42,14 +42,8 @@ export default function ReviewsCarousel({ reviews }: ReviewsCarouselProps) {
         </p>
       </div>
 
-      {/* Marquee Container with Luxury Edge Vignettes */}
+      {/* Marquee Container */}
       <div className="relative w-full overflow-hidden">
-        {/* Left Gradient Fade */}
-        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-12 sm:w-28 bg-gradient-to-r from-slate-50 via-slate-50/80 to-transparent z-10" />
-
-        {/* Right Gradient Fade */}
-        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-12 sm:w-28 bg-gradient-to-l from-slate-50 via-slate-50/80 to-transparent z-10" />
-
         {/* Continuous Auto-Scrolling Marquee Track */}
         <div className="py-2 overflow-hidden">
           <div className="animate-marquee gap-5 sm:gap-6 flex">
@@ -113,12 +107,6 @@ export default function ReviewsCarousel({ reviews }: ReviewsCarouselProps) {
           </div>
         </div>
       </div>
-
-      {/* Subtle Hint */}
-      <p className="text-center text-[11px] text-slate-400 mt-4 font-medium flex items-center justify-center gap-1.5">
-        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-        <span>Continuous auto-scroll • Hover on any card to pause</span>
-      </p>
     </div>
   );
 }

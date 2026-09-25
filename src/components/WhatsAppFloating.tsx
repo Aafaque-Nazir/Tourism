@@ -3,7 +3,22 @@
 import { COMPANY_INFO } from "@/lib/data";
 
 export default function WhatsAppFloating() {
-  const url = `https://wa.me/${COMPANY_INFO.cleanPhone}?text=${encodeURIComponent("Hello Al Raheeq Tourism! I'd like to inquire about your travel services.")}`;
+  const floatingMessage = [
+    `*AL RAHEEQ TOURISM LLC • DUBAI*`,
+    `━━━━━━━━━━━━━━━━━━━━`,
+    `Hello! 👋 I am browsing your website and would like to inquire about your travel services:`,
+    ``,
+    `• UAE Visit Visas (30 & 60 Days)`,
+    `• Flight Bookings & Inquiries`,
+    `• Dubai Desert Safari & City Tours`,
+    `• International Tour Packages`,
+    `• Hotel Reservations`,
+    ``,
+    `━━━━━━━━━━━━━━━━━━━━`,
+    `Kindly connect me with a travel specialist. Thank you!`
+  ].join("\n");
+
+  const url = `https://wa.me/${COMPANY_INFO.cleanPhone.replace("+", "")}?text=${encodeURIComponent(floatingMessage)}`;
 
   return (
     <a

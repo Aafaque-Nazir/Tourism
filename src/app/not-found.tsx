@@ -7,7 +7,7 @@ export default function NotFound() {
     <div className="min-h-[70vh] flex items-center justify-center px-4 py-20 bg-slate-50">
       <div className="max-w-md w-full text-center space-y-6 bg-white p-8 sm:p-10 rounded-3xl shadow-sm border border-slate-200">
         <div className="w-16 h-16 rounded-2xl bg-sky-50 text-sky-600 flex items-center justify-center mx-auto shadow-md shadow-sky-500/10">
-          <Compass className="w-8 h-8 text-sky-600 animate-pulse" />
+          <Compass className="w-8 h-8 text-sky-600" />
         </div>
 
         <div>

@@ -22,7 +22,7 @@ import {
   MessageCircle,
 } from "lucide-react";
 import InstantQuoteModal from "@/components/InstantQuoteModal";
-import { COMPANY_INFO } from "@/lib/data";
+import { COMPANY_INFO, buildWhatsAppQuoteUrl } from "@/lib/data";
 
 const MILESTONES = [
   {
@@ -113,7 +113,7 @@ export default function AboutClient() {
               opacity: 0.22,
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/90 to-transparent" />
+          <div className="absolute inset-0 bg-slate-950/80" />
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-5">
             <div className="flex flex-wrap items-center gap-2.5">
               <span className="px-3 py-1 rounded-full bg-sky-500/10 border border-sky-400/20 text-sky-400 text-[11px] font-bold uppercase tracking-widest">
@@ -128,7 +128,7 @@ export default function AboutClient() {
             <h1 className="font-editorial text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.15]">
               Your Trusted Travel Partner
               <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-sky-100 to-sky-400">
+              <span className="text-sky-400">
                 in Dubai & Worldwide
               </span>
             </h1>
@@ -150,9 +150,10 @@ export default function AboutClient() {
                 <ArrowRight className="w-4 h-4" />
               </button>
               <a
-                href={`https://wa.me/${COMPANY_INFO.whatsapp}?text=${encodeURIComponent(
-                  "Hello Al Raheeq Tourism, I would like to ask about my travel plans."
-                )}`}
+                href={buildWhatsAppQuoteUrl({
+                  serviceOrPackage: "Deira Office Travel Consultation",
+                  notes: "I would like to speak with a travel specialist regarding my upcoming travel plans.",
+                })}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-white/10 hover:bg-white/15 text-white border border-white/20 text-xs font-bold transition-colors"
@@ -286,8 +287,7 @@ export default function AboutClient() {
                     sizes="(max-width: 1024px) 100vw, 40vw"
                     className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
-                  <div className="absolute bottom-6 left-6 right-6 text-white space-y-1">
+                  <div className="absolute bottom-0 inset-x-0 bg-slate-950/85 p-6 text-white space-y-1">
                     <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-600/90 text-[11px] font-bold backdrop-blur-xs">
                       <Sparkles className="w-3.5 h-3.5" />
                       <span>Al Masraf Tower • 22nd Floor</span>

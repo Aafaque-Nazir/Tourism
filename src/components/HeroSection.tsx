@@ -72,8 +72,7 @@ export default function HeroSection({ onOpenQuoteModal }: HeroSectionProps) {
           opacity: 0.35,
         }}
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/80 to-transparent" />
-      <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-slate-900/40" />
+      <div className="absolute inset-0 bg-slate-900/75" />
 
       <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
         <div className="max-w-3xl space-y-6">

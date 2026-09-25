@@ -34,7 +34,7 @@ export default function PackagesClient() {
     <>
       {/* Hero */}
       <section className="relative bg-slate-900 pt-32 pb-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-sky-900/30 via-slate-900 to-slate-900" />
+        <div className="absolute inset-0 bg-slate-900" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-sky-400 block mb-3">
             <Globe className="w-3.5 h-3.5 inline mr-1.5 -mt-0.5" />

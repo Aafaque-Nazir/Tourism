@@ -46,7 +46,7 @@ export default function ServicesClient() {
             opacity: 0.25,
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/85 to-transparent" />
+        <div className="absolute inset-0 bg-slate-900/80" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
           <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-sky-400">
             What We Offer

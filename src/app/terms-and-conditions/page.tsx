@@ -26,7 +26,7 @@ export default function TermsAndConditionsPage() {
     <div className="bg-slate-50 min-h-screen">
       {/* Header Banner */}
       <section className="relative bg-slate-900 text-white py-16 lg:py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-sky-900/30 via-slate-900 to-slate-950" />
+        <div className="absolute inset-0 bg-slate-900" />
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-3">
           <div className="flex items-center gap-2 text-xs font-semibold text-sky-400 uppercase tracking-widest">
             <Link href="/" className="hover:text-white transition-colors">Home</Link>

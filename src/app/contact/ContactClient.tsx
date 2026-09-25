@@ -22,8 +22,10 @@ export default function ContactClient() {
     setTimeout(() => {
       const url = buildWhatsAppQuoteUrl({
         serviceOrPackage: formData.subject,
-        name: formData.name,
-        notes: `Email: ${formData.email}\nMessage: ${formData.message}`,
+        name: formData.name.trim() || undefined,
+        phone: formData.phone.trim() || undefined,
+        email: formData.email.trim() || undefined,
+        notes: formData.message.trim() || undefined,
       });
       window.open(url, "_blank");
       setIsSubmitting(false);
@@ -48,7 +50,7 @@ export default function ContactClient() {
             opacity: 0.25,
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/85 to-transparent" />
+        <div className="absolute inset-0 bg-slate-900/80" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
           <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-sky-400">
             Our Dubai Office

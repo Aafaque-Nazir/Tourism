@@ -225,17 +225,6 @@ export default function Footer() {
                 </Link>
               </li>
             </ul>
-
-            <div className="pt-2 space-y-2">
-              <div className="flex items-center gap-2 p-2 rounded-lg bg-white/5 border border-white/10 text-[10px] font-medium text-slate-300">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0" />
-                <span>Licensed UAE Travel Agency</span>
-              </div>
-              <div className="flex items-center gap-2 p-2 rounded-lg bg-white/5 border border-white/10 text-[10px] font-medium text-slate-300">
-                <ShieldCheck className="w-3.5 h-3.5 text-sky-400 shrink-0" />
-                <span>Secure 256-Bit SSL Checkout</span>
-              </div>
-            </div>
           </div>
         </div>
 

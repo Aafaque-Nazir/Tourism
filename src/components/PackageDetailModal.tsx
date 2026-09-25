@@ -92,15 +92,14 @@ export default function PackageDetailModal({
 
   const handleWhatsAppInquiry = () => {
     const url = buildWhatsAppQuoteUrl({
-      serviceOrPackage: `${pkg.title} (${pkg.duration})`,
-      name: formData.name || undefined,
-      email: formData.email || undefined,
+      serviceOrPackage: `${pkg.title} (${pkg.duration}) — Starting AED ${pkg.priceAED.toLocaleString()}/person`,
+      name: formData.name.trim() || undefined,
+      phone: formData.phone.trim() || undefined,
+      email: formData.email.trim() || undefined,
       date: formData.date || undefined,
       travelers: formData.travelers,
       visaAssistance: formData.visaAssistance,
-      notes: formData.notes
-        ? `${formData.notes} (Starting at AED ${pkg.priceAED.toLocaleString()}/person)`
-        : `Package Starting at AED ${pkg.priceAED.toLocaleString()}/person`,
+      notes: formData.notes.trim() || undefined,
     });
     window.open(url, "_blank");
   };
@@ -202,7 +201,7 @@ export default function PackageDetailModal({
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent" />
+          <div className="absolute inset-0 bg-slate-950/60" />
 
           {/* Close Button */}
           <button
@@ -292,7 +291,7 @@ export default function PackageDetailModal({
           {activeTab === "details" && (
             <div className="space-y-7 animate-fade-in">
               {/* Price Banner */}
-              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-5 rounded-2xl bg-gradient-to-r from-sky-50 via-white to-sky-50/50 border border-sky-100 shadow-sm">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-5 rounded-2xl bg-sky-50 border border-sky-100 shadow-sm">
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-widest text-sky-600 mb-0.5">
                     Starting From
