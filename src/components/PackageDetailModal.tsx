@@ -192,7 +192,7 @@ export default function PackageDetailModal({
         onClick={(e) => e.stopPropagation()}
       >
         {/* Hero Image */}
-        <div className="relative h-48 sm:h-56 w-full shrink-0">
+        <div className="relative h-52 sm:h-60 w-full shrink-0">
           <Image
             src={pkg.image}
             alt={pkg.title}
@@ -206,25 +206,25 @@ export default function PackageDetailModal({
           {/* Close Button */}
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 z-10 p-2 rounded-full bg-slate-900/60 backdrop-blur-md text-white hover:bg-slate-900 transition-colors"
+            className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 z-10 p-2 rounded-full bg-slate-900/60 backdrop-blur-md text-white hover:bg-slate-900 transition-colors"
             aria-label="Close"
           >
             <X className="w-5 h-5" />
           </button>
 
           {/* Overlay Info */}
-          <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6">
-            <div className="flex flex-wrap items-center gap-2 mb-2">
-              <span className="text-2xl leading-none">{pkg.countryFlag}</span>
-              <span className="px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider text-white bg-white/20 backdrop-blur-md">
+          <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6">
+            <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-2">
+              <span className="text-xl sm:text-2xl leading-none">{pkg.countryFlag}</span>
+              <span className="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-white bg-white/20 backdrop-blur-md">
                 {pkg.region}
               </span>
-              <span className="flex items-center gap-1 px-2.5 py-1 rounded-md text-[10px] font-bold text-amber-300 bg-black/40 backdrop-blur-md">
+              <span className="flex items-center gap-1 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md text-[9px] sm:text-[10px] font-bold text-amber-300 bg-black/40 backdrop-blur-md">
                 <Star className="w-3 h-3 fill-amber-300" />
                 {pkg.rating.toFixed(1)} ({pkg.reviewsCount} verified reviews)
               </span>
             </div>
-            <h2 className="font-editorial text-2xl sm:text-3xl font-bold text-white leading-tight">
+            <h2 className="font-editorial text-xl sm:text-2xl md:text-3xl font-bold text-white leading-tight">
               {pkg.title}
             </h2>
             <div className="flex flex-wrap items-center gap-3 sm:gap-4 mt-2.5 text-xs text-white/80">
@@ -286,7 +286,7 @@ export default function PackageDetailModal({
         </div>
 
         {/* Modal Body - Single Unified Scroll */}
-        <div className="p-5 sm:p-7">
+        <div className="p-4 sm:p-6 lg:p-7">
           {/* TAB 1: DETAILS & ITINERARY */}
           {activeTab === "details" && (
             <div className="space-y-7 animate-fade-in">

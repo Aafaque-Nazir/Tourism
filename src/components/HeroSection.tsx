@@ -190,7 +190,7 @@ export default function HeroSection({ onOpenQuoteModal }: HeroSectionProps) {
                 </div>
 
                 {/* Row 2: Date + Travelers + Search */}
-                <div className="grid grid-cols-12 gap-2 items-center">
+                <div className="grid grid-cols-12 gap-1.5 sm:gap-2 items-end">
                   <div className="col-span-5">
                     <label className="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1 flex items-center gap-1">
                       <Calendar className="w-3 h-3 text-sky-600" />
@@ -221,10 +221,10 @@ export default function HeroSection({ onOpenQuoteModal }: HeroSectionProps) {
                     </select>
                   </div>
 
-                  <div className="col-span-2 flex items-end">
+                  <div className="col-span-2">
                     <button
                       type="submit"
-                      className="w-full h-[35px] mt-[16px] rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-bold transition-all shadow-sm hover:shadow-md flex items-center justify-center active:scale-95"
+                      className="w-full h-[33px] sm:h-[35px] rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-bold transition-all shadow-sm hover:shadow-md flex items-center justify-center active:scale-95"
                       title="Search & Check Rates on WhatsApp"
                     >
                       <Search className="w-4 h-4" />
@@ -284,7 +284,7 @@ export default function HeroSection({ onOpenQuoteModal }: HeroSectionProps) {
         </div>
 
         {/* ── RIGHT PARTITION: Airplane + Island Photo ── */}
-        <div className="relative lg:col-span-7 xl:col-span-7 min-h-[400px] sm:min-h-[480px] lg:min-h-full overflow-hidden">
+        <div className="relative lg:col-span-7 xl:col-span-7 min-h-[280px] sm:min-h-[380px] lg:min-h-full overflow-hidden">
           <Image
             src="/hero-airplane-og.jpg"
             alt="Travel worldwide with Al Raheeq Tourism LLC Dubai"
@@ -308,7 +308,7 @@ export default function HeroSection({ onOpenQuoteModal }: HeroSectionProps) {
           <div className="lg:hidden absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-white via-white/80 to-transparent pointer-events-none z-[1]" />
 
           {/* Floating Badge */}
-          <div className="absolute top-24 sm:top-28 right-6 lg:right-8 px-3.5 py-1.5 rounded-full bg-white/85 backdrop-blur-md border border-white/80 shadow-md text-[11px] font-bold text-slate-800 flex items-center gap-1.5 z-10">
+          <div className="absolute top-6 right-4 sm:top-8 sm:right-6 lg:top-28 lg:right-8 px-3 sm:px-3.5 py-1.5 rounded-full bg-white/85 backdrop-blur-md border border-white/80 shadow-md text-[10px] sm:text-[11px] font-bold text-slate-800 flex items-center gap-1.5 z-10">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
             <span>Ticketing on 500+ Airlines</span>
           </div>

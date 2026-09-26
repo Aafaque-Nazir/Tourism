@@ -76,7 +76,7 @@ export default function InstantQuoteModal({
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="relative bg-slate-900 p-6 text-white">
+        <div className="relative bg-slate-900 p-5 sm:p-6 text-white">
           <button
             onClick={onClose}
             className="absolute top-4 right-4 p-1.5 rounded-md text-white/50 hover:text-white hover:bg-white/10 transition-colors"
@@ -96,7 +96,7 @@ export default function InstantQuoteModal({
         </div>
 
         {/* Form */}
-        <form onSubmit={handleSubmit} className="p-6 space-y-4">
+        <form onSubmit={handleSubmit} className="p-4.5 sm:p-6 space-y-4">
           <div>
             <label className="block text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1">
               Service Required

@@ -216,12 +216,12 @@ export default function BentoServices({ onSelectService }: BentoServicesProps) {
               </div>
 
               {/* 3D Visual thumbnail */}
-              <div className="relative w-28 h-28 sm:w-32 sm:h-32 shrink-0">
+              <div className="relative w-24 h-24 sm:w-32 sm:h-32 shrink-0">
                 <Image
                   src={hotel.image || "/bento/bento-hotels.jpg"}
                   alt={hotel.title}
                   fill
-                  sizes="160px"
+                  sizes="(max-width: 640px) 96px, 160px"
                   className="object-contain group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
@@ -261,12 +261,12 @@ export default function BentoServices({ onSelectService }: BentoServicesProps) {
               </div>
 
               {/* 3D Visual thumbnail */}
-              <div className="relative w-28 h-28 sm:w-32 sm:h-32 shrink-0">
+              <div className="relative w-24 h-24 sm:w-32 sm:h-32 shrink-0">
                 <Image
                   src={insurance.image || "/bento/bento-insurance.jpg"}
                   alt={insurance.title}
                   fill
-                  sizes="160px"
+                  sizes="(max-width: 640px) 96px, 160px"
                   className="object-contain group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
@@ -371,12 +371,12 @@ export default function BentoServices({ onSelectService }: BentoServicesProps) {
               </div>
 
               {/* 3D Visual thumbnail */}
-              <div className="relative w-28 h-28 sm:w-32 sm:h-32 shrink-0">
+              <div className="relative w-24 h-24 sm:w-32 sm:h-32 shrink-0">
                 <Image
                   src={tours.image || "/bento/bento-tours.jpg"}
                   alt={tours.title}
                   fill
-                  sizes="160px"
+                  sizes="(max-width: 640px) 96px, 160px"
                   className="object-contain group-hover:scale-110 transition-transform duration-500"
                 />
               </div>

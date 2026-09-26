@@ -167,52 +167,52 @@ export default function AboutClient() {
 
         {/* Floating Numbers Strip */}
         <section className="relative -mt-10 z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-2xl shadow-xl border border-slate-200/90 p-6 sm:p-8 grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center shrink-0">
-                <TrendingUp className="w-6 h-6" />
+          <div className="bg-white rounded-2xl shadow-xl border border-slate-200/90 p-4 sm:p-6 lg:p-8 grid grid-cols-2 md:grid-cols-4 gap-3.5 sm:gap-6">
+            <div className="flex items-center gap-2.5 sm:gap-4">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center shrink-0">
+                <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
               <div>
-                <p className="font-editorial text-2xl sm:text-3xl font-bold text-slate-900 leading-none">
+                <p className="font-editorial text-xl sm:text-2xl lg:text-3xl font-bold text-slate-900 leading-none">
                   12+ Years
                 </p>
-                <p className="text-xs text-slate-500 font-medium mt-1">Experience in Dubai</p>
+                <p className="text-[11px] sm:text-xs text-slate-500 font-medium mt-1">Experience in Dubai</p>
               </div>
             </div>
 
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-xl bg-amber-50 text-amber-500 flex items-center justify-center shrink-0">
-                <Users2 className="w-6 h-6" />
+            <div className="flex items-center gap-2.5 sm:gap-4">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-amber-50 text-amber-500 flex items-center justify-center shrink-0">
+                <Users2 className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
               <div>
-                <p className="font-editorial text-2xl sm:text-3xl font-bold text-slate-900 leading-none">
+                <p className="font-editorial text-xl sm:text-2xl lg:text-3xl font-bold text-slate-900 leading-none">
                   15,000+
                 </p>
-                <p className="text-xs text-slate-500 font-medium mt-1">Happy Travelers</p>
+                <p className="text-[11px] sm:text-xs text-slate-500 font-medium mt-1">Happy Travelers</p>
               </div>
             </div>
 
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
-                <Globe2 className="w-6 h-6" />
+            <div className="flex items-center gap-2.5 sm:gap-4">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+                <Globe2 className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
               <div>
-                <p className="font-editorial text-2xl sm:text-3xl font-bold text-slate-900 leading-none">
+                <p className="font-editorial text-xl sm:text-2xl lg:text-3xl font-bold text-slate-900 leading-none">
                   40+
                 </p>
-                <p className="text-xs text-slate-500 font-medium mt-1">Destinations Covered</p>
+                <p className="text-[11px] sm:text-xs text-slate-500 font-medium mt-1">Destinations</p>
               </div>
             </div>
 
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center shrink-0">
-                <Building2 className="w-6 h-6" />
+            <div className="flex items-center gap-2.5 sm:gap-4">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center shrink-0">
+                <Building2 className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
               <div>
-                <p className="font-editorial text-2xl sm:text-3xl font-bold text-slate-900 leading-none">
+                <p className="font-editorial text-xl sm:text-2xl lg:text-3xl font-bold text-slate-900 leading-none">
                   22nd Floor
                 </p>
-                <p className="text-xs text-slate-500 font-medium mt-1">Office in Deira</p>
+                <p className="text-[11px] sm:text-xs text-slate-500 font-medium mt-1">Office in Deira</p>
               </div>
             </div>
           </div>

@@ -67,14 +67,14 @@ export default function ContactClient() {
       </section>
 
       {/* Main Content */}
-      <section className="py-24 bg-white">
+      <section className="py-14 sm:py-20 lg:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-20">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-20">
             
             {/* Contact Information */}
             <div className="lg:col-span-5 space-y-10">
               <div>
-                <h2 className="font-editorial text-3xl font-bold text-slate-900 tracking-tight">
+                <h2 className="font-editorial text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
                   Get in Touch
                 </h2>
                 <div className="divider-sky mt-4" />
@@ -84,13 +84,13 @@ export default function ContactClient() {
               </div>
 
               <div className="space-y-6">
-                <div className="flex items-start gap-4 p-5 rounded-xl bg-slate-50 border border-slate-200">
+                <div className="flex items-start gap-4 p-4 sm:p-5 rounded-xl bg-slate-50 border border-slate-200">
                   <div className="w-10 h-10 rounded-lg bg-white border border-slate-200 flex items-center justify-center shrink-0">
                     <MapPin className="w-5 h-5 text-sky-600" />
                   </div>
                   <div>
                     <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-1">Office Address</h4>
-                    <p className="text-sm text-slate-600 leading-relaxed">
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                       {COMPANY_INFO.address.line1}<br />
                       {COMPANY_INFO.address.line2}<br />
                       {COMPANY_INFO.address.city}, {COMPANY_INFO.address.country}
@@ -106,13 +106,13 @@ export default function ContactClient() {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4 p-5 rounded-xl bg-slate-50 border border-slate-200">
+                <div className="flex items-start gap-4 p-4 sm:p-5 rounded-xl bg-slate-50 border border-slate-200">
                   <div className="w-10 h-10 rounded-lg bg-white border border-slate-200 flex items-center justify-center shrink-0">
                     <Clock className="w-5 h-5 text-sky-600" />
                   </div>
                   <div>
                     <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-1">Office Hours</h4>
-                    <p className="text-sm text-slate-600 leading-relaxed">
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                       <strong className="font-semibold text-slate-900">Mon - Sat:</strong> {COMPANY_INFO.timings.weekdays.split(' (')[0]}<br />
                       <strong className="font-semibold text-slate-900">Sunday:</strong> {COMPANY_INFO.timings.sunday}
                     </p>
@@ -120,19 +120,19 @@ export default function ContactClient() {
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <a href={`tel:${COMPANY_INFO.cleanPhone}`} className="flex-1 flex items-center justify-center gap-2 p-4 rounded-xl bg-slate-50 border border-slate-200 hover:border-sky-600 hover:bg-sky-50 transition-all group">
+                  <a href={`tel:${COMPANY_INFO.cleanPhone}`} className="flex-1 flex items-center justify-center gap-2 p-3.5 sm:p-4 rounded-xl bg-slate-50 border border-slate-200 hover:border-sky-600 hover:bg-sky-50 transition-all group">
                     <Phone className="w-4 h-4 text-slate-400 group-hover:text-sky-600 transition-colors" />
                     <div>
                       <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Call Us</div>
-                      <div className="text-sm font-semibold text-slate-900">{COMPANY_INFO.phone}</div>
+                      <div className="text-xs sm:text-sm font-semibold text-slate-900">{COMPANY_INFO.phone}</div>
                     </div>
                   </a>
                   
-                  <a href={`mailto:${COMPANY_INFO.email}`} className="flex-1 flex items-center justify-center gap-2 p-4 rounded-xl bg-slate-50 border border-slate-200 hover:border-sky-600 hover:bg-sky-50 transition-all group">
+                  <a href={`mailto:${COMPANY_INFO.email}`} className="flex-1 flex items-center justify-center gap-2 p-3.5 sm:p-4 rounded-xl bg-slate-50 border border-slate-200 hover:border-sky-600 hover:bg-sky-50 transition-all group">
                     <Mail className="w-4 h-4 text-slate-400 group-hover:text-sky-600 transition-colors" />
                     <div>
                       <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Email Us</div>
-                      <div className="text-sm font-semibold text-slate-900">{COMPANY_INFO.email}</div>
+                      <div className="text-xs sm:text-sm font-semibold text-slate-900">{COMPANY_INFO.email}</div>
                     </div>
                   </a>
                 </div>
@@ -141,7 +141,7 @@ export default function ContactClient() {
 
             {/* Contact Form */}
             <div className="lg:col-span-7">
-              <div className="bg-slate-50 rounded-2xl p-8 sm:p-10 border border-slate-200">
+              <div className="bg-slate-50 rounded-2xl p-5 sm:p-8 lg:p-10 border border-slate-200">
                 <h3 className="font-editorial text-2xl font-bold text-slate-900 mb-2">Send Us a Message</h3>
                 <p className="text-sm text-slate-500 mb-8">
                   Fill out the form below and our team will get back to you quickly.
