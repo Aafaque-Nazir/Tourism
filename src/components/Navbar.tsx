@@ -56,7 +56,7 @@ export default function Navbar() {
       {/* Floating Glass Capsule Navigation — Fixed to eliminate top gap */}
       <header className="fixed top-4 sm:top-5 inset-x-0 z-50 w-full px-3.5 sm:px-6 pointer-events-none transition-all duration-300">
         <div
-          className={`pointer-events-auto max-w-5xl lg:max-w-6xl mx-auto rounded-full px-5 sm:px-7 py-2.5 sm:py-3 flex items-center justify-between transition-all duration-300 ${
+          className={`pointer-events-auto max-w-5xl lg:max-w-6xl mx-auto rounded-full px-5 sm:px-7 py-2.5 sm:py-3 flex items-center justify-between transition-all duration-300 backdrop-blur-2xl ${
             scrolled ? "glass-capsule-scrolled" : "glass-capsule"
           }`}
         >
@@ -83,7 +83,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Navigation Links — Translucent Capsule Pill */}
-          <nav className="hidden lg:flex items-center gap-1 bg-slate-200/50 p-1 rounded-full backdrop-blur-xs">
+          <nav className="hidden lg:flex items-center gap-1 bg-black/[0.05] p-1 rounded-full backdrop-blur-sm">
             {navLinks.map((link) => {
               const active = isActive(link.href);
               return (
@@ -92,8 +92,8 @@ export default function Navbar() {
                   href={link.href}
                   className={`px-4 py-1.5 rounded-full text-[13px] transition-all duration-200 ${
                     active
-                      ? "bg-white text-sky-700 font-bold shadow-xs"
-                      : "text-slate-700 hover:text-slate-950 hover:bg-white/60 font-medium"
+                      ? "bg-white/95 text-sky-700 font-bold shadow-xs"
+                      : "text-slate-800 hover:text-slate-950 hover:bg-white/60 font-semibold"
                   }`}
                 >
                   {link.label}
