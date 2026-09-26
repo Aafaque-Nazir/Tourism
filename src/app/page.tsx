@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getSeoMetadata } from "@/lib/seo";
+import { getSeoMetadata, getFaqSchema } from "@/lib/seo";
 import HomeClient from "./HomeClient";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -7,5 +7,15 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function HomePage() {
-  return <HomeClient />;
+  const faqSchema = getFaqSchema();
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <HomeClient />
+    </>
+  );
 }

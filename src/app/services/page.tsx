@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getSeoMetadata } from "@/lib/seo";
+import { getSeoMetadata, getBreadcrumbSchema } from "@/lib/seo";
 import ServicesClient from "./ServicesClient";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -7,5 +7,18 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function ServicesPage() {
-  return <ServicesClient />;
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: "Home", url: "/" },
+    { name: "Travel Services", url: "/services" },
+  ]);
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <ServicesClient />
+    </>
+  );
 }

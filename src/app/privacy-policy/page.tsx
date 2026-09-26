@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Shield, Lock, FileText, CheckCircle2, Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 import { COMPANY_INFO } from "@/lib/data";
+import { getBreadcrumbSchema } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | Al Raheeq Tourism LLC Dubai",
@@ -17,13 +18,30 @@ export const metadata: Metadata = {
     url: "https://alraheeqtourism.com/privacy-policy",
     siteName: "Al Raheeq Tourism LLC",
   },
+  twitter: {
+    card: "summary",
+    title: "Privacy Policy | Al Raheeq Tourism LLC Dubai",
+    description: "Official privacy practices and data protection standards of Al Raheeq Tourism LLC.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function PrivacyPolicyPage() {
   const lastUpdated = "September 24, 2026";
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: "Home", url: "/" },
+    { name: "Privacy Policy", url: "/privacy-policy" },
+  ]);
 
   return (
     <div className="bg-slate-50 min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {/* Header Banner */}
       <section className="relative bg-slate-900 text-white pt-32 pb-16 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24 overflow-hidden">
         <div className="absolute inset-0 bg-slate-900" />

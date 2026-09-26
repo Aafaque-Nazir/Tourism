@@ -81,10 +81,10 @@ export async function POST(request: Request) {
 
     // Sanitize Pages
     const sanitizedPages: Record<string, PageSeoConfig> = {};
-    const validPages = ["home", "about", "services", "contact"];
+    const validPages = ["home", "about", "services", "packages", "stories", "contact"];
 
     for (const key of validPages) {
-      const page = body.pages[key] || {};
+      const page: Partial<PageSeoConfig> = body.pages[key] || {};
       sanitizedPages[key] = {
         title: sanitizeString(page.title, 120),
         description: sanitizeString(page.description, 300),

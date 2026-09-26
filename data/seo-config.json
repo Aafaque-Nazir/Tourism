@@ -1,9 +1,9 @@
 {
   "global": {
-    "siteName": "Al Raheeq Tourism Dubai",
+    "siteName": "Al Raheeq Tourism LLC Dubai",
     "titleTemplate": "%s | Al Raheeq Tourism LLC - Dubai, UAE",
-    "defaultDescription": "Al Raheeq Tourism is a premier travel and tourism agency located in Al Rigga, Deira, Dubai. We provide flight bookings, fast UAE visit visa processing, luxury hotels, customized Dubai holiday packages, and international travel insurance.",
-    "defaultKeywords": "Dubai tourism agency, Al Raheeq Tourism, UAE visit visa 30 days 60 days, Desert Safari Dubai, cheap flight booking Dubai, luxury hotel booking Deira, Al Rigga travel agency, Dubai holiday packages",
+    "defaultDescription": "Al Raheeq Tourism LLC is a premier, DET-licensed travel agency on the 22nd Floor, Al Masraf Building, Al Rigga, Deira, Dubai. We specialize in express 30 & 60-day UAE tourist visas, worldwide airline ticketing on 500+ airlines, luxury desert safaris, 5-star hotel reservations, and custom holiday packages.",
+    "defaultKeywords": "Dubai travel agency, Al Raheeq Tourism LLC, UAE tourist visa 30 days 60 days, Desert Safari Dubai, cheap flight booking Dubai, luxury hotel booking Deira, Al Rigga travel agency, Dubai holiday packages, IATA travel agency Dubai, Deira Dubai tourism company",
     "defaultOgImage": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&h=630&q=80",
     "siteUrl": "https://alraheeqtourism.com",
     "googleSiteVerification": "",
@@ -12,48 +12,68 @@
       "phone": "+971 4 396 9478",
       "whatsapp": "+971 4 396 9478",
       "email": "info@alraheeqtourism.com",
-      "address": "Al Masraf Building, 22nd Floor, Al Rigga, Deira, Dubai, UAE",
+      "address": "Al Masraf Building, 22nd Floor, Al Rigga Road, Deira, Dubai, UAE",
       "hours": "Mon - Sat: 9:00 AM - 10:00 PM (Sunday Closed)"
     }
   },
   "pages": {
     "home": {
-      "title": "Al Raheeq Tourism | Best Travel & Tourism Agency in Deira Dubai",
-      "description": "Experience Dubai with Al Raheeq Tourism. Expert flight ticketing, fast UAE tourist visa assistance, luxury desert safari, dhow cruise, and custom vacation packages in Dubai.",
-      "keywords": "Dubai travel agency, Al Raheeq Tourism, UAE tourist visa, Dubai desert safari, luxury tour packages Dubai, Al Rigga Deira travel agency",
+      "title": "Al Raheeq Tourism LLC | Best Travel Agency in Deira Dubai - Flights, Visas & Tours",
+      "description": "Top-rated travel agency in Al Rigga, Deira, Dubai. We offer express 30 & 60-day UAE tourist visas, worldwide flight bookings on 500+ airlines, luxury desert safari, and customized holiday packages. Visit our office or WhatsApp +971 4 396 9478 for an instant quote.",
+      "keywords": "Dubai travel agency, Al Raheeq Tourism LLC, UAE tourist visa, Dubai visit visa 30 days 60 days, Desert Safari Dubai, cheap flights Dubai, luxury holiday packages Dubai, Al Rigga travel agency, Deira tourism agency, licensed travel agency UAE, Dubai tour packages",
       "canonical": "https://alraheeqtourism.com",
-      "ogTitle": "Al Raheeq Tourism | Premier Travel & Tours in Dubai, UAE",
-      "ogDescription": "Book flights, UAE visas, Dubai tour packages, and luxury hotels with Al Raheeq Tourism in Al Rigga, Deira, Dubai.",
+      "ogTitle": "Al Raheeq Tourism LLC | Premier Travel & Tours Agency in Dubai",
+      "ogDescription": "Book flights, UAE visit visas, luxury desert safaris & customized international holiday packages with Al Raheeq Tourism in Al Rigga, Deira, Dubai.",
       "ogImage": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&h=630&q=80",
       "robots": "index, follow"
     },
     "about": {
-      "title": "About Us | Al Raheeq Tourism LLC Dubai",
-      "description": "Learn about Al Raheeq Tourism, a licensed UAE travel agency based in Al Masraf Building, Al Rigga, Deira, Dubai. Dedicated to unforgettable travel experiences.",
-      "keywords": "about Al Raheeq Tourism, Dubai travel agency history, licensed UAE travel agency, Al Masraf building Deira tourism",
+      "title": "About Us | Al Raheeq Tourism LLC - Licensed UAE Travel Agency Dubai",
+      "description": "Learn about Al Raheeq Tourism LLC, an accredited travel agency on 22nd Floor, Al Masraf Building, Al Rigga Road, Deira, Dubai. Over 10 years of trusted visa processing, flight bookings, and curated global holidays.",
+      "keywords": "about Al Raheeq Tourism, licensed UAE travel agency, Dubai tourism company, Al Masraf building Deira, accredited Dubai travel agents, IATA compliant travel Dubai, travel agency Al Rigga road",
       "canonical": "https://alraheeqtourism.com/about",
-      "ogTitle": "About Al Raheeq Tourism | Trusted Dubai Travel Agency",
-      "ogDescription": "Discover our journey, our team, and our commitment to providing world-class travel services from the heart of Dubai.",
+      "ogTitle": "About Al Raheeq Tourism LLC | Trusted Dubai Travel Agency",
+      "ogDescription": "Over a decade of excellence in Dubai tourism, visit visas, global airline ticketing, and luxury vacation planning from the heart of Deira, Dubai.",
       "ogImage": "https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=1200&h=630&q=80",
       "robots": "index, follow"
     },
     "services": {
-      "title": "Our Services | Flights, Visas, Hotels & Holiday Packages in Dubai",
-      "description": "Comprehensive travel solutions by Al Raheeq Tourism: Worldwide Flight Bookings, UAE Visit Visas (30 & 60 Days), Global Hotel Reservations, Tailor-made Holiday Packages, and Travel Insurance.",
-      "keywords": "Dubai visa services, UAE visit visa 60 days, cheap flights Dubai, holiday packages UAE, hotel reservations Deira",
+      "title": "Travel Services in Dubai | UAE Visas, Flights, Hotels & Tours | Al Raheeq Tourism",
+      "description": "Full-suite travel services by Al Raheeq Tourism: Express 30 & 60-day UAE tourist visas, worldwide flight ticketing on 500+ airlines, 5-star hotel reservations, VIP desert safari, dhow cruises, and comprehensive travel insurance.",
+      "keywords": "Dubai visa services, UAE visit visa 60 days, cheap flight booking Dubai, hotel reservation Deira, desert safari booking, international travel insurance UAE, Al Raheeq services, corporate travel Dubai",
       "canonical": "https://alraheeqtourism.com/services",
-      "ogTitle": "Travel Services in Dubai | Al Raheeq Tourism",
-      "ogDescription": "Explore our full range of travel solutions designed for tourists, corporate travelers, and families visiting Dubai.",
+      "ogTitle": "Complete Travel Services in Dubai | Al Raheeq Tourism LLC",
+      "ogDescription": "Fast UAE visa approvals, worldwide flight ticketing on 500+ airlines, luxury hotel stays, and thrilling desert safaris in Dubai.",
       "ogImage": "https://images.unsplash.com/photo-1580674684081-7617fbf3d745?auto=format&fit=crop&w=1200&h=630&q=80",
       "robots": "index, follow"
     },
+    "packages": {
+      "title": "Dubai & International Tour Packages | Holiday Deals from Dubai | Al Raheeq Tourism",
+      "description": "Explore curated all-inclusive holiday packages from Dubai to Georgia, Turkey, Bali, Azerbaijan, Switzerland, Egypt & UAE tours. Includes hotels, guided sightseeing, flights & visa assistance with transparent pricing.",
+      "keywords": "Dubai tour packages, holiday packages from Dubai, Georgia tour from UAE, Turkey tour package Dubai, Bali holiday package, Switzerland vacation Dubai, Azerbaijan Baku tour, international trips from Dubai, cheap holiday deals UAE",
+      "canonical": "https://alraheeqtourism.com/packages",
+      "ogTitle": "Holiday & Tour Packages from Dubai | Al Raheeq Tourism LLC",
+      "ogDescription": "Unforgettable international vacation packages departing from Dubai. 100% transparent pricing, hotel stays, guided tours, and visa assistance.",
+      "ogImage": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&h=630&q=80",
+      "robots": "index, follow"
+    },
+    "stories": {
+      "title": "Traveler Stories & Guest Reviews | Real Dubai Holiday Diaries | Al Raheeq Tourism",
+      "description": "Discover authentic traveler stories, verified photo journals, and 5-star customer reviews from guests exploring Dubai, Georgia, Turkey, Bali, and beyond with Al Raheeq Tourism.",
+      "keywords": "Dubai travel reviews, Al Raheeq Tourism reviews, traveler testimonials Dubai, tourist photo diaries UAE, verified guest experiences Dubai tourism, Al Raheeq guest feedback",
+      "canonical": "https://alraheeqtourism.com/stories",
+      "ogTitle": "Traveler Stories & Guest Reviews | Al Raheeq Tourism LLC",
+      "ogDescription": "Real traveler journals, photos, and reviews from guests who booked their dream vacation with Al Raheeq Tourism Dubai.",
+      "ogImage": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&h=630&q=80",
+      "robots": "index, follow"
+    },
     "contact": {
-      "title": "Contact Us | Al Raheeq Tourism Deira Dubai Office",
-      "description": "Get in touch with Al Raheeq Tourism located on the 22nd Floor of Al Masraf Building, Al Rigga, Deira, Dubai. Call +971 4 396 9478 or get an instant quote on WhatsApp.",
-      "keywords": "contact Al Raheeq Tourism, Al Masraf building 22nd floor, Al Rigga travel agency phone, Dubai tourism contact number",
+      "title": "Contact Us | Al Raheeq Tourism LLC Deira Dubai Office & WhatsApp",
+      "description": "Visit Al Raheeq Tourism LLC at 22nd Floor, Al Masraf Building, Al Rigga Road, Deira, Dubai. Call +971 4 396 9478 or WhatsApp us for instant quotes on visas, flights, and tours. Open Mon-Sat 9 AM to 10 PM.",
+      "keywords": "contact Al Raheeq Tourism, Al Masraf building 22nd floor, Al Rigga travel agency phone, Dubai tourism WhatsApp, Deira travel agency address, tourist visa contact Dubai, flight booking office Deira",
       "canonical": "https://alraheeqtourism.com/contact",
-      "ogTitle": "Contact Al Raheeq Tourism | Visit Our Office in Al Rigga, Deira",
-      "ogDescription": "Need a visa, flight, or holiday package? Visit our Dubai office or connect directly via WhatsApp and phone.",
+      "ogTitle": "Contact Al Raheeq Tourism LLC | Deira Dubai Office",
+      "ogDescription": "Need an urgent UAE visa, flight ticket, or vacation package? Contact our expert travel consultants in Al Rigga, Deira, Dubai.",
       "ogImage": "https://images.unsplash.com/photo-1546412414-e1885259563a?auto=format&fit=crop&w=1200&h=630&q=80",
       "robots": "index, follow"
     }

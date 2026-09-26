@@ -21,7 +21,7 @@ export default function AdminSeoPage() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState<{ type: "success" | "error"; text: string } | null>(null);
-  const [activeTab, setActiveTab] = useState<"global" | "home" | "about" | "services" | "contact">("home");
+  const [activeTab, setActiveTab] = useState<"global" | "home" | "about" | "services" | "packages" | "stories" | "contact">("home");
 
   // Fetch current SEO configuration
   useEffect(() => {
@@ -47,12 +47,22 @@ export default function AdminSeoPage() {
 
   const handlePageChange = (pageKey: string, field: keyof PageSeoConfig, value: string) => {
     if (!config) return;
+    const existing = config.pages[pageKey] || {
+      title: "",
+      description: "",
+      keywords: "",
+      canonical: "",
+      ogTitle: "",
+      ogDescription: "",
+      ogImage: "",
+      robots: "index, follow"
+    };
     setConfig({
       ...config,
       pages: {
         ...config.pages,
         [pageKey]: {
-          ...config.pages[pageKey],
+          ...existing,
           [field]: value
         }
       }
@@ -223,6 +233,8 @@ export default function AdminSeoPage() {
             { id: "home", label: "🏠 Home Page (/)" },
             { id: "about", label: "ℹ️ About Us (/about)" },
             { id: "services", label: "✈️ Services (/services)" },
+            { id: "packages", label: "🌴 Tour Packages (/packages)" },
+            { id: "stories", label: "📸 Stories (/stories)" },
             { id: "contact", label: "📍 Contact (/contact)" },
             { id: "global", label: "🌐 Global Settings & Analytics" }
           ].map((tab) => (

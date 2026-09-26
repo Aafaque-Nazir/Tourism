@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { RotateCcw, AlertTriangle, Clock, CreditCard, CheckCircle2, Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 import { COMPANY_INFO } from "@/lib/data";
+import { getBreadcrumbSchema } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Refund & Cancellation Policy | Al Raheeq Tourism LLC Dubai",
@@ -17,13 +18,30 @@ export const metadata: Metadata = {
     url: "https://alraheeqtourism.com/cancellation-policy",
     siteName: "Al Raheeq Tourism LLC",
   },
+  twitter: {
+    card: "summary",
+    title: "Refund & Cancellation Policy | Al Raheeq Tourism LLC Dubai",
+    description: "Official cancellation rules and refund criteria for travel bookings with Al Raheeq Tourism LLC Dubai.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function CancellationPolicyPage() {
   const lastUpdated = "September 24, 2026";
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: "Home", url: "/" },
+    { name: "Refund & Cancellation Policy", url: "/cancellation-policy" },
+  ]);
 
   return (
     <div className="bg-slate-50 min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {/* Header Banner */}
       <section className="relative bg-slate-900 text-white pt-32 pb-16 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24 overflow-hidden">
         <div className="absolute inset-0 bg-slate-900" />

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Playfair_Display, Plus_Jakarta_Sans } from "next/font/google";
 import "lenis/dist/lenis.css";
 import "./globals.css";
-import { getRawSeoConfig, getLocalBusinessSchema } from "@/lib/seo";
+import { getRawSeoConfig, getLocalBusinessSchema, getWebSiteSchema } from "@/lib/seo";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppFloating from "@/components/WhatsAppFloating";
@@ -23,15 +23,24 @@ const plusJakarta = Plus_Jakarta_Sans({
 export async function generateMetadata(): Promise<Metadata> {
   const config = getRawSeoConfig();
   const siteUrl = config.global.siteUrl || "https://alraheeqtourism.com";
+  const home = config.pages.home;
 
   return {
     metadataBase: new URL(siteUrl),
     title: {
-      default: config.pages.home.title,
+      default: home.title,
       template: config.global.titleTemplate || "%s | Al Raheeq Tourism LLC",
     },
-    description: config.pages.home.description,
-    keywords: config.pages.home.keywords?.split(",").map((k) => k.trim()),
+    description: home.description,
+    keywords: home.keywords?.split(",").map((k) => k.trim()),
+    category: "Travel & Tourism",
+    alternates: {
+      canonical: home.canonical || siteUrl,
+      languages: {
+        "en-AE": home.canonical || siteUrl,
+        "ar-AE": home.canonical || siteUrl,
+      },
+    },
     verification: {
       google: config.global.googleSiteVerification || undefined,
     },
@@ -46,14 +55,13 @@ export async function generateMetadata(): Promise<Metadata> {
       shortcut: "/favicon.ico",
     },
     openGraph: {
-      title: config.pages.home.ogTitle || config.pages.home.title,
-      description:
-        config.pages.home.ogDescription || config.pages.home.description,
+      title: home.ogTitle || home.title,
+      description: home.ogDescription || home.description,
       url: siteUrl,
       siteName: config.global.siteName,
       images: [
         {
-          url: config.pages.home.ogImage || config.global.defaultOgImage,
+          url: home.ogImage || config.global.defaultOgImage,
           width: 1200,
           height: 630,
           alt: "Al Raheeq Tourism Dubai",
@@ -61,6 +69,23 @@ export async function generateMetadata(): Promise<Metadata> {
       ],
       locale: "en_AE",
       type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: home.ogTitle || home.title,
+      description: home.ogDescription || home.description,
+      images: [home.ogImage || config.global.defaultOgImage],
+    },
+    robots: {
+      index: !home.robots?.includes("noindex"),
+      follow: !home.robots?.includes("nofollow"),
+      googleBot: {
+        index: !home.robots?.includes("noindex"),
+        follow: !home.robots?.includes("nofollow"),
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
     },
   };
 }
@@ -70,7 +95,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const schema = getLocalBusinessSchema();
+  const businessSchema = getLocalBusinessSchema();
+  const webSiteSchema = getWebSiteSchema();
 
   return (
     <html
@@ -83,7 +109,11 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteSchema) }}
         />
       </head>
       <body className="min-h-screen flex flex-col font-sans antialiased text-slate-700 bg-slate-50">
