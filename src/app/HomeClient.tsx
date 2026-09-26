@@ -11,12 +11,8 @@ import {
   Building2,
   FileCheck,
   CreditCard,
-  Headphones,
-  Sparkles,
-  ExternalLink,
   MessageCircle,
-  Star,
-  CheckCircle2,
+  ExternalLink,
 } from "lucide-react";
 import HeroSection from "@/components/HeroSection";
 import BentoServices from "@/components/BentoServices";
@@ -25,7 +21,6 @@ import PackageDetailModal from "@/components/PackageDetailModal";
 import InstantQuoteModal from "@/components/InstantQuoteModal";
 import ReviewsCarousel from "@/components/ReviewsCarousel";
 import {
-  SERVICES_DATA,
   FEATURED_PACKAGES,
   REVIEWS_DATA,
   COMPANY_INFO,
