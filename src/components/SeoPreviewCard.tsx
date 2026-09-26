@@ -91,7 +91,14 @@ export default function SeoPreviewCard({
         <div className="max-w-md mx-auto rounded-xl border border-slate-200 overflow-hidden bg-slate-50 shadow-sm">
           {ogImage ? (
             <div className="relative h-44 w-full bg-slate-200 overflow-hidden">
-              <Image src={ogImage} alt="Social Preview" fill unoptimized className="object-cover" />
+              <Image
+                src={ogImage}
+                alt="Social Preview"
+                fill
+                sizes="(max-width: 768px) 100vw, 448px"
+                unoptimized
+                className="object-cover"
+              />
             </div>
           ) : (
             <div className="h-44 w-full bg-sky-100 flex items-center justify-center text-sky-500 text-xs font-semibold">

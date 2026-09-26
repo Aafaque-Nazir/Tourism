@@ -7,6 +7,8 @@ export interface ServiceItem {
   iconName: string;
   badge?: string;
   features: string[];
+  image?: string;
+  ctaText?: string;
 }
 
 export interface ItineraryDay {
@@ -87,28 +89,15 @@ export const COMPANY_INFO = {
 
 export const SERVICES_DATA: ServiceItem[] = [
   {
-    id: "flight-bookings",
-    title: "Flight Bookings",
-    titleArabic: "حجوزات الطيران",
-    tagline: "Best rates for international and domestic flights",
-    description: "Book flights across 500+ airlines with instant e-tickets, flexible dates, and quick rebooking support.",
-    iconName: "Plane",
-    badge: "Best Fare Guarantee",
-    features: [
-      "Economy, Business & First Class options",
-      "Instant confirmation & e-ticket delivery",
-      "24/7 rebooking & cancellation support",
-      "Special group & corporate discounts"
-    ]
-  },
-  {
     id: "visa-assistance",
-    title: "Visa Assistance",
+    title: "UAE Tourist Visas",
     titleArabic: "خدمات التأشيرات",
-    tagline: "Quick UAE tourist visas and global visa services",
-    description: "Get 30-day, 60-day, and express UAE tourist visas. We also provide guidance for Schengen, UK, US, and Asian visas.",
+    tagline: "Quick 30 & 60-day UAE tourist visas and global services",
+    description: "Express 24–48 hour fast-track approvals with complete document verification by Dubai visa experts.",
     iconName: "FileCheck",
-    badge: "High Approval Rate",
+    badge: "24–48h Fast Track",
+    ctaText: "Apply Visa",
+    image: "/bento/bento-visa.jpg",
     features: [
       "UAE 30-Day & 60-Day Tourist Visas",
       "Express 24-48 hour fast-track processing",
@@ -117,13 +106,32 @@ export const SERVICES_DATA: ServiceItem[] = [
     ]
   },
   {
+    id: "flight-bookings",
+    title: "Worldwide Flights",
+    titleArabic: "حجوزات الطيران",
+    tagline: "Best rates for international and domestic flights",
+    description: "Book flights across 500+ airlines with instant e-tickets, corporate discounts, and quick rebooking support.",
+    iconName: "Plane",
+    badge: "Best Fare Guarantee",
+    ctaText: "Search Flights",
+    image: "/bento/bento-flights.jpg",
+    features: [
+      "Economy, Business & First Class options",
+      "Instant confirmation & e-ticket delivery",
+      "24/7 rebooking & cancellation support",
+      "Special group & corporate discounts"
+    ]
+  },
+  {
     id: "hotel-reservations",
     title: "Hotel Reservations",
     titleArabic: "حجوزات الفنادق",
     tagline: "Luxury and budget hotel bookings worldwide",
-    description: "From 5-star Dubai resorts like Atlantis and Burj Al Arab to budget-friendly city hotels near Downtown and Deira.",
+    description: "From 5-star Dubai resorts like Atlantis and Burj Al Arab to budget-friendly city hotels near Deira.",
     iconName: "Building2",
     badge: "Exclusive Rates",
+    ctaText: "Book Hotel",
+    image: "/bento/bento-hotels.jpg",
     features: [
       "Access to luxury Dubai 5-star beachfront resorts",
       "Exclusive complimentary breakfast & room upgrades",
@@ -132,33 +140,54 @@ export const SERVICES_DATA: ServiceItem[] = [
     ]
   },
   {
-    id: "holiday-packages",
-    title: "Holiday Packages",
-    titleArabic: "الباقات السياحية",
-    tagline: "Dubai tours and holiday packages",
-    description: "Enjoy Desert Safaris, Marina Dhow Cruises, city tours, and international holiday trips.",
-    iconName: "Compass",
-    badge: "Top Rated",
-    features: [
-      "Tailor-made itineraries for couples, families & groups",
-      "VIP Desert Safari with dune bashing & BBQ dinner",
-      "Burj Khalifa At The Top, Museum of the Future passes",
-      "Private luxury transfers & certified multilingual guides"
-    ]
-  },
-  {
     id: "travel-insurance",
     title: "Travel Insurance",
     titleArabic: "التأمين الصحي للسفر",
     tagline: "Complete travel insurance coverage",
-    description: "Insurance packages covering medical emergencies, trip cancellations, lost baggage, and flight delays.",
+    description: "Mandatory UAE-compliant protection covering medical emergencies, lost baggage, and flight delays.",
     iconName: "ShieldCheck",
-    badge: "Mandatory UAE Compliant",
+    badge: "UAE Compliant",
+    ctaText: "Get Covered",
+    image: "/bento/bento-insurance.jpg",
     features: [
       "Emergency medical & hospitalization cover",
       "Baggage delay & loss reimbursement",
       "COVID-19 & emergency evacuation protection",
       "Instant certificate generation for visa filing"
+    ]
+  },
+  {
+    id: "desert-safari",
+    title: "Desert Safari & Red Dunes",
+    titleArabic: "رحلات السفاري الصحراوية",
+    tagline: "Unforgettable Dubai desert adventures",
+    description: "Experience thrill-packed red dune bashing, quad biking, camel riding, and VIP Arabian BBQ camp.",
+    iconName: "Compass",
+    badge: "Top Dubai Experience",
+    ctaText: "Book Safari",
+    image: "/bento/bento-safari.jpg",
+    features: [
+      "VIP Desert Safari with red dunes bashing",
+      "Quad biking, sandboarding & camel trekking",
+      "Live Tanoura, Fire Show & 5-Star BBQ dinner",
+      "Private 4x4 pickup directly from your hotel"
+    ]
+  },
+  {
+    id: "holiday-packages",
+    title: "City Tours & Combos",
+    titleArabic: "الباقات السياحية",
+    tagline: "Dubai tours and holiday packages",
+    description: "Burj Khalifa At The Top, Marina Dhow Cruises, city excursions, and customized international itineraries.",
+    iconName: "Compass",
+    badge: "Must Visit",
+    ctaText: "Explore Tours",
+    image: "/bento/bento-tours.jpg",
+    features: [
+      "Tailor-made itineraries for couples, families & groups",
+      "Burj Khalifa At The Top & Museum of the Future",
+      "Dubai Marina luxury sunset yacht & Dhow dinner",
+      "Private luxury transfers & certified multilingual guides"
     ]
   }
 ];
