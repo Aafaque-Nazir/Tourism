@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { cookies } from "next/headers";
 import { COOKIE_NAME, verifySessionToken } from "@/lib/auth";
 import { getRawSeoConfig, saveRawSeoConfig, type FullSeoConfig, type PageSeoConfig } from "@/lib/seo";
@@ -110,9 +111,18 @@ export async function POST(request: Request) {
       );
     }
 
+    // Immediately purge and revalidate Next.js cache across all routes
+    try {
+      revalidatePath("/", "layout");
+      revalidatePath("/sitemap.xml");
+      revalidatePath("/robots.txt");
+    } catch (revalidateErr) {
+      console.warn("Revalidation notice:", revalidateErr);
+    }
+
     return NextResponse.json({
       success: true,
-      message: "SEO configuration validated and saved successfully!"
+      message: "SEO configuration validated, saved, and live cache revalidated successfully!"
     });
   } catch (error) {
     console.error("SEO update error:", error);

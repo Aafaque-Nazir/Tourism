@@ -95,8 +95,10 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const config = getRawSeoConfig();
   const businessSchema = getLocalBusinessSchema();
   const webSiteSchema = getWebSiteSchema();
+  const gaId = config.global.googleAnalyticsId;
 
   return (
     <html
@@ -115,6 +117,27 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteSchema) }}
         />
+        {gaId && (
+          <>
+            <script
+              async
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+            />
+            <script
+              id="google-analytics"
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', '${gaId}', {
+                    page_path: window.location.pathname,
+                  });
+                `,
+              }}
+            />
+          </>
+        )}
       </head>
       <body className="min-h-screen flex flex-col font-sans antialiased text-slate-700 bg-slate-50">
         <SmoothScroll>

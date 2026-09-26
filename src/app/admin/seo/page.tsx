@@ -80,6 +80,20 @@ export default function AdminSeoPage() {
     });
   };
 
+  const handleGlobalContactChange = (field: string, value: string) => {
+    if (!config) return;
+    setConfig({
+      ...config,
+      global: {
+        ...config.global,
+        contact: {
+          ...config.global.contact,
+          [field]: value
+        }
+      }
+    });
+  };
+
   const handleSave = async () => {
     if (!config) return;
     setSaving(true);
@@ -327,6 +341,23 @@ export default function AdminSeoPage() {
                 />
               </div>
 
+              {/* Canonical URL */}
+              <div>
+                <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                  Canonical URL (Optional override)
+                </label>
+                <input
+                  type="url"
+                  value={currentPage.canonical || ""}
+                  onChange={(e) => handlePageChange(activeTab, "canonical", e.target.value)}
+                  className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500"
+                  placeholder={`https://alraheeqtourism.com/${activeTab === "home" ? "" : activeTab}`}
+                />
+                <p className="text-[11px] text-slate-400 mt-1">
+                  Leave empty to automatically use the standard canonical path.
+                </p>
+              </div>
+
               {/* OpenGraph Title & Description */}
               <div className="pt-4 border-t border-slate-100 space-y-4">
                 <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider flex items-center gap-1.5">
@@ -374,6 +405,19 @@ export default function AdminSeoPage() {
                       <option value="noindex, nofollow">No-Index, No-Follow (Hidden)</option>
                     </select>
                   </div>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-semibold text-slate-700 mb-1">
+                    Social Description (OG Description override)
+                  </label>
+                  <textarea
+                    rows={2}
+                    value={currentPage.ogDescription || ""}
+                    onChange={(e) => handlePageChange(activeTab, "ogDescription", e.target.value)}
+                    className="w-full px-3.5 py-2 rounded-xl border border-slate-200 text-xs focus:outline-none focus:ring-2 focus:ring-sky-500 resize-none"
+                    placeholder="Same as meta description if empty"
+                  />
                 </div>
               </div>
 
@@ -484,6 +528,75 @@ export default function AdminSeoPage() {
                 onChange={(e) => handleGlobalChange("defaultOgImage", e.target.value)}
                 className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500"
               />
+            </div>
+
+            {/* Contact & Business Schema Information */}
+            <div className="pt-4 border-t border-slate-100 space-y-4">
+              <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider">
+                Physical Office & Schema.org LocalBusiness Data
+              </h4>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-semibold text-slate-700 mb-1">
+                    Direct Telephone
+                  </label>
+                  <input
+                    type="text"
+                    value={config.global.contact?.phone || ""}
+                    onChange={(e) => handleGlobalContactChange("phone", e.target.value)}
+                    className="w-full px-3.5 py-2 rounded-xl border border-slate-200 text-xs focus:outline-none focus:ring-2 focus:ring-sky-500"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold text-slate-700 mb-1">
+                    WhatsApp Inquiry Number
+                  </label>
+                  <input
+                    type="text"
+                    value={config.global.contact?.whatsapp || ""}
+                    onChange={(e) => handleGlobalContactChange("whatsapp", e.target.value)}
+                    className="w-full px-3.5 py-2 rounded-xl border border-slate-200 text-xs focus:outline-none focus:ring-2 focus:ring-sky-500"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-semibold text-slate-700 mb-1">
+                    Official Email
+                  </label>
+                  <input
+                    type="email"
+                    value={config.global.contact?.email || ""}
+                    onChange={(e) => handleGlobalContactChange("email", e.target.value)}
+                    className="w-full px-3.5 py-2 rounded-xl border border-slate-200 text-xs focus:outline-none focus:ring-2 focus:ring-sky-500"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold text-slate-700 mb-1">
+                    Working Hours
+                  </label>
+                  <input
+                    type="text"
+                    value={config.global.contact?.hours || ""}
+                    onChange={(e) => handleGlobalContactChange("hours", e.target.value)}
+                    className="w-full px-3.5 py-2 rounded-xl border border-slate-200 text-xs focus:outline-none focus:ring-2 focus:ring-sky-500"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-xs font-semibold text-slate-700 mb-1">
+                  Office Street Address (Deira HQ)
+                </label>
+                <input
+                  type="text"
+                  value={config.global.contact?.address || ""}
+                  onChange={(e) => handleGlobalContactChange("address", e.target.value)}
+                  className="w-full px-3.5 py-2 rounded-xl border border-slate-200 text-xs focus:outline-none focus:ring-2 focus:ring-sky-500"
+                />
+              </div>
             </div>
 
             <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
