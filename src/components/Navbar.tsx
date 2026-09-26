@@ -51,18 +51,22 @@ export default function Navbar() {
     return pathname.startsWith(href);
   };
 
+  if (pathname?.startsWith("/admin")) {
+    return null;
+  }
+
   return (
     <>
-      {/* Floating Glass Capsule Navigation — Fixed to eliminate top gap */}
-      <header className="fixed top-4 sm:top-5 inset-x-0 z-50 w-full px-3.5 sm:px-6 pointer-events-none transition-all duration-300">
+      {/* Floating Glass Capsule Navigation */}
+      <header className="fixed top-3.5 sm:top-5 inset-x-0 z-50 w-full px-3 sm:px-6 pointer-events-none transition-all duration-300">
         <div
-          className={`pointer-events-auto max-w-5xl lg:max-w-6xl mx-auto rounded-full px-5 sm:px-7 py-2.5 sm:py-3 flex items-center justify-between transition-all duration-300 backdrop-blur-2xl ${
+          className={`pointer-events-auto max-w-5xl lg:max-w-6xl mx-auto rounded-full px-4 sm:px-6 lg:px-7 py-2 sm:py-2.5 lg:py-3 flex items-center justify-between transition-all duration-300 backdrop-blur-2xl ${
             scrolled ? "glass-capsule-scrolled" : "glass-capsule"
           }`}
         >
           {/* Brand Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative w-10 h-10 rounded-full bg-white/90 p-1.5 flex items-center justify-center shadow-xs overflow-hidden group-hover:scale-105 transition-transform duration-300">
+          <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group shrink-0">
+            <div className="relative w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/90 p-1 sm:p-1.5 flex items-center justify-center shadow-xs overflow-hidden group-hover:scale-105 transition-transform duration-300">
               <Image
                 src="/logo-icon.png"
                 alt="Al Raheeq Tourism LLC Dubai"
@@ -73,10 +77,10 @@ export default function Navbar() {
               />
             </div>
             <div>
-              <span className="font-editorial text-lg sm:text-xl font-bold text-slate-900 tracking-tight block leading-tight group-hover:text-sky-700 transition-colors">
+              <span className="font-editorial text-base sm:text-lg lg:text-xl font-bold text-slate-900 tracking-tight block leading-tight group-hover:text-sky-700 transition-colors">
                 Al Raheeq
               </span>
-              <span className="text-[9px] font-bold uppercase tracking-[0.16em] text-sky-600 block">
+              <span className="text-[8.5px] sm:text-[9px] font-bold uppercase tracking-[0.14em] sm:tracking-[0.16em] text-sky-600 block">
                 Tourism LLC • Dubai
               </span>
             </div>
@@ -90,7 +94,7 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`px-4 py-1.5 rounded-full text-[13px] transition-all duration-200 ${
+                  className={`px-3.5 xl:px-4 py-1.5 rounded-full text-[13px] transition-all duration-200 ${
                     active
                       ? "bg-white/95 text-sky-700 font-bold shadow-xs"
                       : "text-slate-800 hover:text-slate-950 hover:bg-white/60 font-semibold"
@@ -103,11 +107,11 @@ export default function Navbar() {
           </nav>
 
           {/* Desktop Actions */}
-          <div className="hidden lg:flex items-center gap-4">
-            {/* Direct Phone Call Button */}
+          <div className="hidden lg:flex items-center gap-3 xl:gap-4">
+            {/* Direct Phone Call Button (visible on XL screens for optimal breathing room) */}
             <a
               href={`tel:${COMPANY_INFO.cleanPhone}`}
-              className="flex items-center gap-2 px-3 py-1.5 rounded-full text-slate-700 hover:text-sky-600 hover:bg-white/60 transition-all text-xs font-semibold"
+              className="hidden xl:flex items-center gap-2 px-3 py-1.5 rounded-full text-slate-700 hover:text-sky-600 hover:bg-white/60 transition-all text-xs font-semibold"
               title={`Call Al Raheeq: ${COMPANY_INFO.phone}`}
             >
               <div className="w-6 h-6 rounded-full bg-sky-500/10 text-sky-600 flex items-center justify-center">
@@ -119,7 +123,7 @@ export default function Navbar() {
             {/* Contact CTA */}
             <Link
               href="/contact"
-              className="flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-sky-600 hover:bg-sky-500 transition-all shadow-[0_4px_14px_rgba(2,132,199,0.35)] hover:shadow-[0_6px_20px_rgba(2,132,199,0.45)] hover:-translate-y-0.5 active:translate-y-0"
+              className="flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs font-bold uppercase tracking-wider text-white bg-sky-600 hover:bg-sky-500 transition-all shadow-[0_4px_14px_rgba(2,132,199,0.35)] hover:shadow-[0_6px_20px_rgba(2,132,199,0.45)] hover:-translate-y-0.5 active:translate-y-0"
             >
               <span>Contact Us</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -139,7 +143,7 @@ export default function Navbar() {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 transition-opacity duration-300 lg:hidden ${
+        className={`fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-[60] transition-opacity duration-300 lg:hidden ${
           mobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
         onClick={() => setMobileMenuOpen(false)}
@@ -148,7 +152,7 @@ export default function Navbar() {
 
       {/* Mobile Menu Panel */}
       <div
-        className={`fixed top-0 left-0 w-full bg-white shadow-2xl z-50 lg:hidden transition-transform duration-500 ease-[0.22,1,0.36,1] ${
+        className={`fixed top-0 left-0 w-full bg-white shadow-2xl z-[70] lg:hidden transition-transform duration-500 ease-[0.22,1,0.36,1] ${
           mobileMenuOpen ? "translate-y-0 pointer-events-auto" : "-translate-y-full pointer-events-none"
         }`}
       >

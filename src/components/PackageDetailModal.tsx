@@ -176,7 +176,7 @@ export default function PackageDetailModal({
   return (
     <div
       data-lenis-prevent
-      className="fixed inset-0 z-50 flex items-center justify-center p-2.5 sm:p-4 bg-slate-900/75 backdrop-blur-sm overflow-hidden"
+      className="fixed inset-0 z-[100] flex items-center justify-center p-2.5 sm:p-4 bg-slate-900/75 backdrop-blur-sm overflow-hidden"
       onClick={onClose}
       onWheel={(e) => {
         // When user scrolls on the backdrop outside the card, scroll the card!

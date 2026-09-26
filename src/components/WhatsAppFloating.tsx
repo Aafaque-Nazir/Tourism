@@ -1,8 +1,14 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { COMPANY_INFO } from "@/lib/data";
 
 export default function WhatsAppFloating() {
+  const pathname = usePathname();
+
+  if (pathname?.startsWith("/admin")) {
+    return null;
+  }
   const floatingMessage = [
     `*AL RAHEEQ TOURISM LLC • DUBAI*`,
     `━━━━━━━━━━━━━━━━━━━━`,

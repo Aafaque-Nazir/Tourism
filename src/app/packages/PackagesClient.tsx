@@ -33,7 +33,7 @@ export default function PackagesClient() {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-slate-900 pt-32 pb-20 overflow-hidden">
+      <section className="relative bg-slate-900 pt-32 pb-16 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24 overflow-hidden">
         <div className="absolute inset-0 bg-slate-900" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-sky-400 block mb-3">
@@ -52,7 +52,7 @@ export default function PackagesClient() {
       </section>
 
       {/* Filter Tabs */}
-      <section className="sticky top-0 z-30 bg-white border-b border-slate-200 shadow-sm">
+      <section className="sticky top-[76px] sm:top-[88px] z-30 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-2 py-3 overflow-x-auto hide-scrollbar">
             <Filter className="w-3.5 h-3.5 text-slate-400 shrink-0" />

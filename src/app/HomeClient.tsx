@@ -67,7 +67,7 @@ export default function HomeClient() {
       <BentoServices onSelectService={(title) => openQuote(title)} />
 
       {/* Featured Tour Packages */}
-      <section id="packages" className="py-24 bg-white border-t border-slate-200">
+      <section id="packages" className="py-24 bg-white border-t border-slate-200 scroll-mt-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
             <div>

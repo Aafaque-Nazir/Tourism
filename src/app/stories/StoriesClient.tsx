@@ -60,7 +60,7 @@ export default function StoriesClient() {
   return (
     <div className="bg-slate-900 text-white min-h-[calc(100vh-72px)] flex flex-col justify-between selection:bg-sky-500 selection:text-white">
       {/* Background Ambience */}
-      <div className="relative overflow-hidden pt-24 pb-20 lg:pt-32 lg:pb-28">
+      <div className="relative overflow-hidden pt-32 pb-20 sm:pt-36 sm:pb-24 lg:pt-40 lg:pb-28">
 
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
           {/* Heading */}

@@ -25,7 +25,7 @@ export default function CancellationPolicyPage() {
   return (
     <div className="bg-slate-50 min-h-screen">
       {/* Header Banner */}
-      <section className="relative bg-slate-900 text-white py-16 lg:py-20 overflow-hidden">
+      <section className="relative bg-slate-900 text-white pt-32 pb-16 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24 overflow-hidden">
         <div className="absolute inset-0 bg-slate-900" />
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-3">
           <div className="flex items-center gap-2 text-xs font-semibold text-sky-400 uppercase tracking-widest">
@@ -53,7 +53,7 @@ export default function CancellationPolicyPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
             {/* Sidebar quick info */}
             <div className="lg:col-span-4 order-2 lg:order-1 space-y-6">
-              <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-xs space-y-4 sticky top-24">
+              <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-xs space-y-4 sticky top-28">
                 <div className="flex items-center gap-3 pb-3 border-b border-slate-100">
                   <div className="w-10 h-10 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center shrink-0">
                     <RotateCcw className="w-5 h-5" />
