@@ -104,7 +104,7 @@ export default function AboutClient() {
     <>
       <div className="bg-slate-50 min-h-screen">
         {/* Hero Section */}
-        <section className="relative bg-slate-900 text-white py-20 lg:py-28 overflow-hidden">
+        <section className="relative bg-slate-900 text-white pt-32 pb-20 lg:pt-36 lg:pb-28 overflow-hidden">
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{

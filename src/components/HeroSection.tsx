@@ -74,7 +74,7 @@ export default function HeroSection({ onOpenQuoteModal }: HeroSectionProps) {
       />
       <div className="absolute inset-0 bg-slate-900/75" />
 
-      <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+      <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 lg:pt-36 lg:pb-28">
         <div className="max-w-3xl space-y-6">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 text-sky-300 text-xs font-semibold tracking-wider uppercase border border-white/10 backdrop-blur-sm">
