@@ -57,8 +57,8 @@ const DEFAULT_SEO_CONFIG: FullSeoConfig = {
       "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1200&h=630&q=80",
     siteUrl: "https://alraheeqtourism.com",
     contact: {
-      phone: "+971 4 396 9478",
-      whatsapp: "+971 4 396 9478",
+      phone: process.env.NEXT_PUBLIC_COMPANY_PHONE?.trim() || "+971 4 396 9478",
+      whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER?.trim() || "+971 4 396 9478",
       email: "info@alraheeqtourism.com",
       address: "Al Masraf Building, 22nd Floor, Al Rigga Road, Deira, Dubai, UAE",
       hours: "Mon - Sat: 9:00 AM - 10:00 PM (Sunday Closed)",
@@ -157,7 +157,14 @@ export function getRawSeoConfig(): FullSeoConfig {
     const filePath = path.join(process.cwd(), "data", "seo-config.json");
     if (fs.existsSync(filePath)) {
       const content = fs.readFileSync(filePath, "utf-8");
-      return JSON.parse(content) as FullSeoConfig;
+      const config = JSON.parse(content) as FullSeoConfig;
+      if (process.env.NEXT_PUBLIC_COMPANY_PHONE?.trim()) {
+        config.global.contact.phone = process.env.NEXT_PUBLIC_COMPANY_PHONE.trim();
+      }
+      if (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER?.trim()) {
+        config.global.contact.whatsapp = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER.trim();
+      }
+      return config;
     }
   } catch (error) {
     console.error("Failed to read seo-config.json, falling back to defaults", error);

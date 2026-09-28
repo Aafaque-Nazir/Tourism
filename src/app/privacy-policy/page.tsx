@@ -266,8 +266,8 @@ export default function PrivacyPolicyPage() {
                 <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs space-y-1.5 font-medium text-slate-800">
                   <p>Al Raheeq Tourism LLC — Legal & Compliance Department</p>
                   <p>Al Masraf Building, 22nd Floor, Al Rigga Road, Deira, Dubai, UAE</p>
-                  <p>Email: <a href="mailto:info@alraheeqtourism.com" className="text-sky-600 underline">info@alraheeqtourism.com</a></p>
-                  <p>Telephone: +971 4 396 9478</p>
+                  <p>Email: <a href={`mailto:${COMPANY_INFO.email}`} className="text-sky-600 underline">{COMPANY_INFO.email}</a></p>
+                  <p>Telephone: {COMPANY_INFO.phone}</p>
                 </div>
               </div>
             </div>

@@ -24,7 +24,7 @@ export default function WhatsAppFloating() {
     `Kindly connect me with a travel specialist. Thank you!`
   ].join("\n");
 
-  const url = `https://wa.me/${COMPANY_INFO.cleanPhone.replace("+", "")}?text=${encodeURIComponent(floatingMessage)}`;
+  const url = `https://wa.me/${COMPANY_INFO.whatsapp}?text=${encodeURIComponent(floatingMessage)}`;
 
   return (
     <a

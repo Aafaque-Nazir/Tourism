@@ -60,14 +60,37 @@ export const PACKAGE_REGIONS = [
 
 export type PackageRegion = (typeof PACKAGE_REGIONS)[number];
 
+const envPhone = process.env.NEXT_PUBLIC_COMPANY_PHONE?.trim();
+const envWhatsApp = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER?.trim();
+
+// Format display phone
+const displayPhone = envPhone || "+971 4 396 9478";
+
+// Format cleanPhone for tel: links (ensures leading +)
+const rawCleanPhone = (envPhone || "+97143969478").replace(/[^\d+]/g, "");
+const cleanPhone = rawCleanPhone.startsWith("+") ? rawCleanPhone : `+${rawCleanPhone}`;
+
+// Format WhatsApp for wa.me links (digits only in international format)
+function sanitizeWhatsApp(raw?: string): string {
+  if (!raw) return "97143969478";
+  let digits = raw.replace(/\D/g, "");
+  // If 10 digits Indian mobile number without country code (starts with 6, 7, 8, 9)
+  if (digits.length === 10 && /^[6-9]/.test(digits)) {
+    return `91${digits}`;
+  }
+  return digits || "97143969478";
+}
+
+const whatsappNumber = sanitizeWhatsApp(envWhatsApp || envPhone);
+
 export const COMPANY_INFO = {
   name: "Al Raheeq Tourism",
   arabicName: "الرحيق للسياحة",
   legalEntity: "Al Raheeq Tourism LLC",
   tagline: "Your Gateway to Dubai & Beyond",
-  phone: "+971 4 396 9478",
-  cleanPhone: "+97143969478",
-  whatsapp: "97143969478",
+  phone: displayPhone,
+  cleanPhone: cleanPhone,
+  whatsapp: whatsappNumber,
   email: "info@alraheeqtourism.com",
   rating: 5.0,
   reviewsCount: "1,200+",
@@ -933,7 +956,7 @@ export function buildWhatsAppQuoteUrl(data: {
     return val.replace(/[\r\n\t]+/g, " ").slice(0, max).trim();
   };
 
-  const phone = COMPANY_INFO.cleanPhone.replace("+", "");
+  const phone = COMPANY_INFO.whatsapp;
 
   const details: string[] = [];
   if (data.serviceOrPackage) {

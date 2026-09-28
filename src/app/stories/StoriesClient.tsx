@@ -53,7 +53,7 @@ export default function StoriesClient() {
     `Attached are my photos. Looking forward to seeing my feature!`
   ].join("\n");
 
-  const sharePhotosWhatsApp = `https://wa.me/${COMPANY_INFO.cleanPhone.replace("+", "")}?text=${encodeURIComponent(
+  const sharePhotosWhatsApp = `https://wa.me/${COMPANY_INFO.whatsapp}?text=${encodeURIComponent(
     shareStoriesMessage
   )}`;
 
